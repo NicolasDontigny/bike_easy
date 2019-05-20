@@ -1,7 +1,8 @@
-<div class="col-xs-6 col-xs-offset-3 form__goback">
-  <%= simple_form_for [@bike, @user, @booking] do |f| %>
+<div class="col-xs-6 col-xs-offset-3">
+  <%= simple_form_for [@bike, @booking] do |f| %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
+    <%= hidden_field_tag(:bike_id, @bike.id) %>
     <%= f.submit "Book this bike!"%>
   <% end %>
 </div>
