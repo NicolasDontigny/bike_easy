@@ -7,9 +7,9 @@ Bike.destroy_all
     name: Faker::Vehicle.make_and_model,
     category: ["mountain", 'road', 'electric', 'fixi', 'bmx'].sample,
     description: 'perfect for riding mountains',
-    gender: 'M',
+    gender: ['F', 'M'].sample,
     rating: [1, 2, 3, 4, 5].sample,
-    size: 'sm',
+    size: ['sm', 'md', 'lg'].sample,
     photo: 'www.google.ca'
   )
   bike.user = User.first
@@ -21,9 +21,9 @@ end
     name: Faker::Vehicle.make_and_model,
     category: ["mountain", 'road', 'electric', 'fixi', 'bmx'].sample,
     description: 'perfect for riding long roads',
-    gender: 'F',
+    gender: ['F', 'M'].sample,
     rating: [1, 2, 3, 4, 5].sample,
-    size: ['sm', 'md', 'lg'],
+    size: ['sm', 'md', 'lg'].sample,
     photo: 'www.google.ca'
   )
   bike.user = User.last
