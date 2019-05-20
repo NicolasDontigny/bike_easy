@@ -3,6 +3,8 @@ class Bike < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :users, through: :bookings
 
+  mount_uploader :photo, PhotoUploader
+
   validates :name, :category, :description, :photo, :gender, :size, presence: true
   validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }
   validates :gender, inclusion: { in: ['M', 'F'] }
