@@ -1,11 +1,10 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: [:show, :edit]
+  before_action :set_bike, only: [:show]
   def index
   end
 
   def show
     @booking = Booking.new
-    @user = current_user
   end
 
   def index_owner

@@ -1,15 +1,25 @@
-<% if @bike %>
-  <%= @bike.name %>
-  <%= @bike.category %>
-  <%= @bike.description %>
-  <%= @bike.photo %>
-  <%= @bike.gender %>
-  <%= @bike.size %>
-  <%= @bike.rating %>
-  <%= @bike.user.name %>
+<div class="card__banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=@bike.photo%>')">
+  <%= link_to bikes_path do %>
+    <i class="fas fa-arrow-left"></i>Back
+  <% end %>
+  <h2><%= @bike.name %> <%= link_to edit_bike_path do%>
+    <i class="fas fa-pencil-alt"></i>
+  <% end %></h2>
 
-  <%= render "shared/booking_form", bike: @bike, user: @user, booking: @booking %>
-<% else %>
-  <p> No bike to see here</p>
-<% end %>
+</div>
 
+<ul>
+  <li>Category: <%=@bike.category %></li>
+  <li>Description: <%= @bike.description %></li>
+  <li>Genger: <%=@bike.gender %></li>
+  <li>Size: <%= @bike.size %></li>
+  <% counter = 0 %>
+  <li>Rating: <% 5.times do %>
+    <i class="fa <%= @bike.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+      <% counter += 1 %>
+    <% end %>
+  </li>
+  <li><%= @bike.user_id %></li>
+</ul>
+
+  <%= render "shared/booking_form", bike: @bike, booking: @booking %>
