@@ -9,6 +9,7 @@ gem 'rails', '5.2.3'
 gem 'redis'
 
 gem 'autoprefixer-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem 'faker'
 gem 'font-awesome-sass', '~> 5.6.1'
