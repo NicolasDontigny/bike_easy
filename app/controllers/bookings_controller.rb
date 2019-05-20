@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-  def :index
+  def index
   end
 
-  def :rentals
+  def rentals
   end
 end

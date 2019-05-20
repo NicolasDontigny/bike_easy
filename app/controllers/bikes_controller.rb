@@ -1,16 +1,16 @@
 class BikesController < ApplicationController
-  def :index
+  def index
   end
 
-  def :show
+  def show
   end
 
-  def :index_owner
+  def index_owner
   end
 
-  def :new
+  def new
   end
 
-  def :edit
+  def edit
   end
 end
