@@ -1,0 +1,7 @@
+<div class="col-xs-6 col-xs-offset-3 form__goback">
+  <%= simple_form_for [@bike, @user, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Book this bike!"%>
+  <% end %>
+</div>

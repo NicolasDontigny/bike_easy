@@ -1,2 +1,15 @@
-<h1>Bikes#:show</h1>
-<p>Find me in app/views/bikes/:show.html.erb</p>
+<% if @bike %>
+  <%= @bike.name %>
+  <%= @bike.category %>
+  <%= @bike.description %>
+  <%= @bike.photo %>
+  <%= @bike.gender %>
+  <%= @bike.size %>
+  <%= @bike.rating %>
+  <%= @bike.user.name %>
+
+  <%= render "shared/booking_form", bike: @bike, user: @user, booking: @booking %>
+<% else %>
+  <p> No bike to see here</p>
+<% end %>
+
