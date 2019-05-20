@@ -5,8 +5,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(review_params)
     @bike = Bike.find(params[:bike_id])
-    @user = User.find(params[:bike_id])
-    @review.cocktail = @cocktail
+    @user = User.find(params[:user_id])
+    @booking.bike = @bike
+    @booking.user = @buser
     redirect_to bike_path(@bike.id)
   end
 
