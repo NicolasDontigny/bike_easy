@@ -1,6 +1,30 @@
-<h1>Bikes#:index_owner</h1>
-<p>Find me in app/views/bikes/:index_owner.html.erb</p>
+<h1>Manage my Bikes</h1>
 
 <% @bikes.each do |bike| %>
-  <li><%= bike.name %> - <%= bike.category %></li>
+  <div class="card-product my-3">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+    <div class="card-product-infos">
+      <h2><%= bike.name %></h2>
+      <h5>
+        <%= bike.category.capitalize %> bike
+        <% if bike.gender == 'M' %>
+          (For Men)
+        <% else %>
+          (For Women)
+        <% end %>
+      </h5>
+      <p class="description"><%= bike.description %></p>
+      <p class="size">
+        Size:
+        <% case bike.size %>
+        <% when 'sm' %>
+          Small
+        <% when 'md' %>
+          Medium
+        <% when 'lg' %>
+          Large
+        <% end %>
+      </p>
+    </div>
+  </div>
 <% end %>
