@@ -6,6 +6,8 @@ class BikesController < ApplicationController
   end
 
   def index_owner
+    @current_user = current_user
+    @bikes = Bike.all.where(user: @current_user)
   end
 
   def new
