@@ -13,9 +13,15 @@
     <%= render 'shared/navbar' unless @no_navbar %>
     <%= render 'shared/flashes' %>
 
-    <div class="container py-3">
+    <% if !@no_navbar %>
+      <div class="container py-3">
+        <%= yield %>
+      </div>
+    <% else %>
       <%= yield %>
-    </div>
+    <% end %>
+
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
