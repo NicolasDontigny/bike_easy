@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   def index
+    @current_user = current_user
+    @bookings = Booking.all
   end
 
   def create
@@ -9,7 +11,6 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     @booking.save!
-    flash[:notice] = "Booking successful"
 
     redirect_to bike_path(@bike.id)
   end
