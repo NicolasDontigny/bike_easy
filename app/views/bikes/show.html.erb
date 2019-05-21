@@ -1,17 +1,18 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=@bike.photo%>')">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @bike.photo%>')">
   <%= link_to bikes_path, class: "back-arrow" do %>
     <i class="fas fa-arrow-left"></i> Back
   <% end %>
-  <h2><%= @bike.name %>
+  <h2 class="bike__title"><%= @bike.name %>
   <% if policy(@bike).edit? %>
     <%= link_to edit_bike_path(@bike.id), class: "edit_btn" do%>
     <i class="fas fa-pencil-alt"></i>
     <% end %>
   <% end %></h2>
 </div>
-<h4 class="specs__title">Specs sheet</h4>
 <div class="bike__info--container">
-    <div class="specssheet">
+  <div class="specs__wrapper">
+    <div class="specssheet" >
+      <h4 class="specs__title">Specs sheet</h4>
       <ul class="specs">
         <li class="spec__info"><strong>Category:</strong> <%=@bike.category %></li>
         <li class="spec__info"><strong>Description:</strong> <%= @bike.description %></li>
@@ -24,12 +25,12 @@
           <% end %>
         </li>
       </ul>
-      <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact the owner</a>
       <%= image_tag 'skidmarks.png', class: "skidmarks" %>
     </div>
-    <div class="booking-form">
-    <h4>Book me!</h4>
+    <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact the owner</a>
+  </div>
+  <div class="booking-form">
+    <h4 class="specs__title">Book me!</h4>
     <%= render "shared/booking_form", bike: @bike, booking: @booking %>
-    </div>
-  <div>
+  </div>
 </div>

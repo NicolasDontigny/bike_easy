@@ -48,45 +48,61 @@
   transition: opacity 0.4s ease;
 }
 
+.bike__title {
+  position: relative;
+}
+
 .edit_btn {
   color: $light-gray;
   font-size: 2rem;
   position: absolute;
-  right: -60px;
-  bottom: 35px;
+  right: -25%;
+  bottom: 0;
   opacity: 0;
   transition: opacity 0.4s ease;
+  &:hover {
+    color: $light-gray;
+  }
 }
 
 .bike__info--container {
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 
 .specs__title {
-  margin-top: 1rem;
   color: #CB6B16;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.specs__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
 }
 
 .specssheet {
   background-image: url('https://static.brusheezy.com/system/resources/previews/000/018/482/non_2x/notebook-paper-texture-photoshop-textures.jpg');
   background-size: cover;
   background-position: center;
-  height: 35vh;
-  width: 40%;
+  height: 100%;
+  width: 80%;
   border-radius: 5px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
-  margin: 0 2rem 2rem 2rem;
+  margin-right: 2rem;
   position:relative;
 }
 
 .specs {
   padding-top: 0.5rem;
+  padding-left: 1rem;
   list-style: none;
 }
 
 .spec__info {
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 }
 
 .fa.fa-star {
@@ -94,7 +110,8 @@
 }
 
 .mailto {
-  display: inline-block;
+  text-align: center;
+  width: 12rem;
   margin-top: 2rem;
   padding: 1rem;
   border-radius: 5px;
@@ -112,11 +129,15 @@
 }
 
 .skidmarks {
-  position: absolute;
-  right: 0rem;
-  bottom: -3rem;
-  width: 10rem;
-  transform: rotate(-20deg);
+  opacity: 0;
+  @media screen and (min-width: 900px) {
+    opacity: 1;
+    position: absolute;
+    right: 0rem;
+    bottom: -3rem;
+    width: 10rem;
+    transform: rotate(-20deg);
+  }
 }
 
 .booking-form {
