@@ -1,4 +1,5 @@
 .box {
+    background: white;
     margin: 24px;
 }
 
@@ -9,6 +10,7 @@
     padding: 24px;
     height: 300px;
     width: 100%;
+    border-radius: 3px;
 }
 
 .banner-info {
@@ -36,6 +38,7 @@
     overflow: hidden;
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 3px;
   }
   
   .card-bike > img {
@@ -55,7 +58,6 @@
     opacity: .7;
     margin: 0;
   }
-  
   
   .card-bike .card-bike-infos {
     padding: 8px;
