@@ -12,7 +12,7 @@
 
     <div class="cards">
         <% @bikes.each do |bike| %>
-            <%= link_to bike_path(bike.id) do %>
+            <%= link_to bike_path(bike.id), class:"card_link" do %>
                 <div class="card-bike">
                     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
                     <div class="card-bike-infos">
