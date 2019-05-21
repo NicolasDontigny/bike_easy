@@ -11,12 +11,13 @@ const initSweetalert = () => {
   };
 
   const swalButton = document.getElementById('booking__submit');
+  const form = document.getElementById('new_booking')
 
   if(swalButton) {
     swalButton.addEventListener('click', (event) => {
-      const link = event.currentTarget;
+      event.preventDefault();
       swal(options).then((value) => {
-        if (value) { link.click(); };
+        if (value) { form.submit(); };
       })
     });
   }
