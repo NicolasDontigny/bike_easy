@@ -1,7 +1,6 @@
 class BikesController < ApplicationController
-
   before_action :set_bike, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @bikes = Bike.all
@@ -15,7 +14,6 @@ class BikesController < ApplicationController
   def index_owner
     @current_user = current_user
     @bikes = policy_scope(Bike)
-    # @bikes = Bike.all.where(user_id: @current_user.id)
   end
 
   def new

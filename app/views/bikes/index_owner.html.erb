@@ -14,7 +14,7 @@
 <% @bikes.each do |bike| %>
   <div class="card-product my-3">
     <%= cl_image_tag bike.photo %>
-    <div class="card-product-infos d-flex">
+    <div class="card-product-infos d-flex flex-grow-1">
       <div class="flex-grow-1">
         <h2><%= bike.name %></h2>
         <h5>
