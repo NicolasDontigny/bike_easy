@@ -6,11 +6,14 @@ class BikesController < ApplicationController
 
   def show
     @booking = Booking.new
+    authorize @bike
   end
 
   def index_owner
     @current_user = current_user
-    @bikes = Bike.all.where(user_id: @current_user.id)
+    @bikes = policy_scope(Bike)
+    # @bikes = Bike.all.where(user_id: @current_user.id)
+
   end
 
   def new

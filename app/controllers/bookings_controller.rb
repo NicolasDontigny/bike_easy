@@ -7,7 +7,9 @@ class BookingsController < ApplicationController
     @bike = Bike.find(params[:bike_id])
     @booking.bike = @bike
     @booking.user = current_user
+    authorize @booking
     @booking.save!
+
     redirect_to bike_path(@bike.id)
   end
 
