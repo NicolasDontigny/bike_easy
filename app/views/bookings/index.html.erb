@@ -1,4 +1,20 @@
+<h1>Bookings</h1>
 <div class="d-flex justify-content-between align-items-center my-3">
-  <h1>Bookings</h1>
-</div>
+  <% @bookings.each do |booking| %>
+    <% booked_user = User.find(booking.user_id) %>
+    <% booked_bike = Bike.find(booking.bike_id) %>
+    <div class="card-product my-3">
+     <%= cl_image_tag booked_bike.photo %>
+      <div class="card-product-infos">
+        <p><%= booked_user.email %></p>
+        <p>Bike <%= booked_bike.name %></p>
+        <p>Beg <%= booking.start_date %></p>
+        <p>End <%= booking.end_date %></p>
+        <p>Status <%= booking.confirmed %></p>
+
+      </div>
+    </div>
+<% end %>
+
+
 
