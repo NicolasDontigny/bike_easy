@@ -4,7 +4,6 @@ import swal from 'sweetalert';
 const initSweetalert = () => {
   const options = {
     title: "Please confirm the booking",
-    text: "<%= @booking.id %>",
     icon: "warning",
     buttons: true,
     dangerMode: true,
