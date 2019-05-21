@@ -13,17 +13,21 @@ class BikesController < ApplicationController
     @current_user = current_user
     @bikes = policy_scope(Bike)
     # @bikes = Bike.all.where(user_id: @current_user.id)
-
   end
 
   def new
     @bike = Bike.new
+
+    authorize Bike
   end
 
   def create
     new_bike = Bike.new(params_permit)
     new_bike.rating = [1, 2, 3, 4, 5].sample
     new_bike.user = current_user
+
+    authorize new_bike
+
     new_bike.save
 
     redirect_to my_bikes_path

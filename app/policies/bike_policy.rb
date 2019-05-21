@@ -7,9 +7,13 @@ class BikePolicy < ApplicationPolicy
     true
   end
 
-  # def create?
-  #   true
-  # end
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
 
   class Scope < Scope
     def resolve
