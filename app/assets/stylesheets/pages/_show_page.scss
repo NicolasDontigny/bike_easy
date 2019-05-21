@@ -88,7 +88,7 @@
   background-size: cover;
   background-position: center;
   height: 100%;
-  width: 90%;
+  width: 85%;
   border-radius: 5px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
   margin-right: 2rem;
@@ -110,10 +110,39 @@
   color: #CB6B16;
 }
 
+.skidmarks {
+  opacity: 0;
+  @media screen and (min-width: 900px) {
+    opacity: 0.8;
+    position: absolute;
+    right: -5rem;
+    top: 5rem;
+    width: 10rem;
+    transform: rotate(-20deg);
+  }
+}
+
+.skidmarks2 {
+  opacity: 0;
+  @media screen and (min-width: 900px) {
+    opacity: 0.8;
+    position: absolute;
+    right: -3rem;
+    bottom: 1rem;
+    width: 10rem;
+    transform: rotate(0deg);
+  }
+}
+
+.contact {
+  color: #CB6B16;
+  margin-top: 2rem;
+}
+
 .mailto {
+  margin-left: 1rem;
   text-align: center;
   width: 12rem;
-  margin-top: 2rem;
   padding: 1rem;
   border-radius: 5px;
   background-color: #CB6B16;
@@ -127,23 +156,6 @@
     text-decoration: none;
     opacity: 1;
   }
-}
-
-.skidmarks {
-  opacity: 0;
-  @media screen and (min-width: 900px) {
-    opacity: 1;
-    position: absolute;
-    right: 0rem;
-    bottom: -3rem;
-    width: 10rem;
-    transform: rotate(-20deg);
-  }
-}
-
-.fas.fa-phone-office {
-  font-size: 2rem;
-  color: #CB6B16;
 }
 
 .booking-form {
