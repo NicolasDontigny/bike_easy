@@ -24,5 +24,5 @@ Rails.application.routes.draw do
 
   delete 'booking/:id', to: 'bookings#destroy', as: :booking
 
-  get 'my-bikes', to: "bikes#index_owner", as: :index_owner
+  get 'my-bikes', to: "bikes#index_owner", as: :my_bikes
 end
