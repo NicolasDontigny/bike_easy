@@ -1,5 +1,8 @@
 class BikesController < ApplicationController
+
   before_action :set_bike, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @bikes = Bike.all
   end
@@ -35,6 +38,7 @@ class BikesController < ApplicationController
   end
 
   def edit
+
     @edit = true
     authorize @bike
   end
@@ -45,6 +49,7 @@ class BikesController < ApplicationController
     @bike.update(params_permit)
 
     redirect_to my_bikes_path
+
   end
 
   def destroy
