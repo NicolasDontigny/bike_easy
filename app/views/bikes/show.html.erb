@@ -1,27 +1,35 @@
-<div class="card__banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=@bike.photo%>')">
-  <%= link_to bikes_path do %>
-    <i class="fas fa-arrow-left"></i>Back
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=@bike.photo%>')">
+  <%= link_to bikes_path, class: "back-arrow" do %>
+    <i class="fas fa-arrow-left"></i> Back
   <% end %>
   <h2><%= @bike.name %>
-  <% if current_user == @bike.user%>
-    <%= link_to edit_bike_path do%>
-      <i class="fas fa-pencil-alt"></i>
+  <% if policy(@bike).edit? %>
+    <%= link_to edit_bike_path(@bike.id), class: "edit_btn" do%>
+    <i class="fas fa-pencil-alt"></i>
     <% end %>
   <% end %></h2>
 </div>
-
-<ul>
-  <li>Category: <%=@bike.category %></li>
-  <li>Description: <%= @bike.description %></li>
-  <li>Gender: <%=@bike.gender %></li>
-  <li>Size: <%= @bike.size %></li>
-  <% counter = 0 %>
-  <li>Rating: <% 5.times do %>
-    <i class="fa <%= @bike.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-      <% counter += 1 %>
-    <% end %>
-  </li>
-  <li><%= @bike.user_id %></li>
-</ul>
-
-  <%= render "shared/booking_form", bike: @bike, booking: @booking %>
+<h4 class="specs__title">Specs sheet</h4>
+<div class="bike__info--container">
+    <div class="specssheet">
+      <ul class="specs">
+        <li class="spec__info"><strong>Category:</strong> <%=@bike.category %></li>
+        <li class="spec__info"><strong>Description:</strong> <%= @bike.description %></li>
+        <li class="spec__info"><strong>Gender:</strong> <%=@bike.gender %></li>
+        <li class="spec__info"><strong>Size:</strong> <%= @bike.size %></li>
+        <% counter = 0 %>
+        <li class="spec__info"><strong>Rating:</strong> <% 5.times do %>
+          <i class="fa <%= @bike.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+            <% counter += 1 %>
+          <% end %>
+        </li>
+      </ul>
+      <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact the owner</a>
+      <%= image_tag 'skidmarks.png', class: "skidmarks" %>
+    </div>
+    <div class="booking-form">
+    <h4>Book me!</h4>
+    <%= render "shared/booking_form", bike: @bike, booking: @booking %>
+    </div>
+  <div>
+</div>

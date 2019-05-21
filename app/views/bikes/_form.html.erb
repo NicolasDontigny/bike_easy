@@ -1,4 +1,4 @@
-<%= simple_form_for @bike, :url => my_bikes_path do |form| %>
+<%= simple_form_for @bike do |form| %>
   <%= form.input :name %>
   <%= form.input :category, collection: ['mountain', 'road', 'electric', 'fixi', 'bmx'] %>
   <%= form.input :description %>

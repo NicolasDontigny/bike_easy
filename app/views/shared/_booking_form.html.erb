@@ -3,6 +3,6 @@
     <%= f.input :start_date %>
     <%= f.input :end_date %>
     <%= hidden_field_tag(:bike_id, @bike.id) %>
-    <%= f.submit "Book this bike!", data: { confirm: 'You booked it!' }%>
+    <%= f.submit "Book this bike!", data: { confirm: 'Please, confirm your booking' }%>
   <% end %>
 </div>
