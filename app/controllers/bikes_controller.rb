@@ -1,5 +1,5 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: [:show]
+  before_action :set_bike, only: [:show, :edit]
   def index
     @bikes = Bike.all
   end
@@ -30,6 +30,7 @@ class BikesController < ApplicationController
   end
 
   def edit
+    authorize @bike
   end
 
   def set_bike
