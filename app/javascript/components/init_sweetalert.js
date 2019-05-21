@@ -5,7 +5,7 @@ const initSweetalert = () => {
   const options = {
     title: "Please confirm the booking",
     icon: "warning",
-    buttons: true,
+    buttons: ['No, I cancel', "Yes, I'm sure"],
     dangerMode: true,
   };
 
