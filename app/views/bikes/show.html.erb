@@ -3,9 +3,9 @@
     <i class="fas fa-arrow-left"></i>Back
   <% end %>
   <h2><%= @bike.name %>
-  <% if current_user == @bike.user%>
-    <%= link_to edit_bike_path do%>
-      <i class="fas fa-pencil-alt"></i>
+  <% if policy(@bike).edit? %>
+    <%= link_to edit_bike_path(@bike.id) do%>
+    <i class="fas fa-pencil-alt"></i>
     <% end %>
   <% end %></h2>
 </div>
@@ -21,7 +21,7 @@
       <% counter += 1 %>
     <% end %>
   </li>
-  <li><%= @bike.user_id %></li>
+  <li><a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_top">Contact the owner</a></li>
 </ul>
 
   <%= render "shared/booking_form", bike: @bike, booking: @booking %>
