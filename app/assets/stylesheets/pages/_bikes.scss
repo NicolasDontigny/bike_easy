@@ -61,7 +61,13 @@
   }
   
   .card-bike-infos {
+    justify-content: space-between;
     text-align: left;
     top: 0px;
+  }
+
+  .price {
+      text-align: right;
+      margin-bottom: -8px;
   }
   
