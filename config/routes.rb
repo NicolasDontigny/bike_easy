@@ -4,19 +4,17 @@ Rails.application.routes.draw do
 
   get 'bikes', to: 'bikes#index', as: :bikes
 
+  get 'bikes/new', to: 'bikes#new', as: :new_bike
+
   get 'bikes/:id', to: 'bikes#show', as: :bike
 
-  get 'my-bikes', to: "bikes#index_owner", as: :index_owner
+  post 'bikes', to: 'bikes#create'
 
-  get 'my-bikes/new', to: 'bikes#new', as: :new_bike
+  get 'bikes/:id/edit', to: 'bikes#edit', as: :edit_bike
 
-  post 'my-bikes', to: 'bikes#create'
+  patch 'bikes/:id', to: 'bikes#update'
 
-  get 'my-bikes/edit', to: 'bikes#edit', as: :edit_bike
-
-  patch 'my-bikes/:id', to: 'bikes#update', as: :owner_bike
-
-  delete 'my-bikes/:id', to: 'bikes#destroy'
+  delete 'bikes/:id', to: 'bikes#destroy'
 
   get 'bookings', to: 'bookings#index', as: :bookings
 
@@ -25,4 +23,6 @@ Rails.application.routes.draw do
   post 'bikes/:id/bookings', to: 'bookings#create', as: :bike_bookings
 
   delete 'booking/:id', to: 'bookings#destroy', as: :booking
+
+  get 'my-bikes', to: "bikes#index_owner", as: :index_owner
 end
