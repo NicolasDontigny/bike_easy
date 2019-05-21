@@ -10,3 +10,14 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.avatar {
+  cursor: pointer;
+}
+
+.navbar-light .navbar-nav .nav-link.disabled {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: #6c757d;
+}
