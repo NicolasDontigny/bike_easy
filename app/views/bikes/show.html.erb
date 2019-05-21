@@ -2,16 +2,18 @@
   <%= link_to bikes_path do %>
     <i class="fas fa-arrow-left"></i>Back
   <% end %>
-  <h2><%= @bike.name %> <%= link_to edit_bike_path do%>
-    <i class="fas fa-pencil-alt"></i>
+  <h2><%= @bike.name %>
+  <% if current_user == @bike.user%>
+    <%= link_to edit_bike_path do%>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
   <% end %></h2>
-
 </div>
 
 <ul>
   <li>Category: <%=@bike.category %></li>
   <li>Description: <%= @bike.description %></li>
-  <li>Genger: <%=@bike.gender %></li>
+  <li>Gender: <%=@bike.gender %></li>
   <li>Size: <%= @bike.size %></li>
   <% counter = 0 %>
   <li>Rating: <% 5.times do %>
