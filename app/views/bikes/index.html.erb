@@ -2,29 +2,28 @@
 <p>Find me in app/views/bikes/:index.html.erb</p> %>
 
 <div class="container">
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+    <div class="semi-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1544361591-36e31038df92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);">
       <div class="banner-info">
-        <h1>Rent a bike whenever, wherever!</h1>
-        <p>Browse through numerous types of bikes specific to your needs!</p>
+        <h2>Rent a bike whenever, wherever!</h2>
+        <p>Browse through numerous types of bikes specific to your needs.</p>
         <a class="btn btn-primary" href="#">Learn More</a>
       </div>
     </div>
 
     <div class="cards">
         <% @bikes.each do |bike| %>
-            <div class="card-trip">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
-                <div class="card-trip-infos">
-                  <div>
-                    <h2><%= bike.name %></h2>
-                    <p><%= bike.description %></p>
-                  </div>
-                  <p class="card-trip-pricing">Rating: <%= bike.rating %></p>
-                  <%# <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/> %>
+            <%= link_to bike_path(bike.id), class:"card_link" do %>
+                <div class="card-bike">
+                    <img src="https://images.unsplash.com/photo-1549344401-7b90d352d7f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80">
+                    <div class="card-bike-infos">
+                      <div>
+                        <h2><%= bike.name %></h2>
+                        <p><%= bike.description.capitalize %></p>
+                        <p>Rating: <%= bike.rating %></p>
+                      </div>
+                    </div>
                 </div>
-            </div>
+            <% end %>
         <% end %>
     </div>
-
 </div>
-

@@ -1,0 +1,145 @@
+.card-category {
+  position: relative;
+  background-size: cover;
+  background-position: left top;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  &:hover .edit_btn {
+    opacity: 0.5;
+  }
+  &:hover .edit_btn:hover {
+    opacity: 1;
+  }
+  &:hover .back-arrow {
+    opacity: 0.5;
+  }
+  &:hover .back-arrow:hover {
+    opacity: 1;
+    color: $light-gray;
+    text-decoration: none;
+  }
+}
+
+.back-arrow {
+  position: absolute;
+  color: $light-gray;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.back-arrow {
+  position: absolute;
+  color: $light-gray;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.bike__title {
+  position: relative;
+}
+
+.edit_btn {
+  color: $light-gray;
+  font-size: 2rem;
+  position: absolute;
+  right: -25%;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  &:hover {
+    color: $light-gray;
+  }
+}
+
+.bike__info--container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.specs__title {
+  color: #CB6B16;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.specs__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+
+.specssheet {
+  background-image: url('https://static.brusheezy.com/system/resources/previews/000/018/482/non_2x/notebook-paper-texture-photoshop-textures.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 80%;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  margin-right: 2rem;
+  position:relative;
+}
+
+.specs {
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.spec__info {
+  padding-top: 0.5rem;
+}
+
+.fa.fa-star {
+  color: #CB6B16;
+}
+
+.mailto {
+  text-align: center;
+  width: 12rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #CB6B16;
+  color: $light-gray;
+  opacity: 0.7;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: opacity 0.5s ease-in, box-shadow 0.5s ease-in-out;
+  &:hover {
+    box-shadow: 10px 10px 10px -5px rgba(200,200,200,1);
+    color: $light-gray;
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+.skidmarks {
+  opacity: 0;
+  @media screen and (min-width: 900px) {
+    opacity: 1;
+    position: absolute;
+    right: 0rem;
+    bottom: -3rem;
+    width: 10rem;
+    transform: rotate(-20deg);
+  }
+}
+
+.booking-form {
+  flex-grow: 1
+}

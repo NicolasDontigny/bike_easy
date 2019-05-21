@@ -8,8 +8,8 @@
 }
 
 .card-product img {
-  height: 100%;
   width: 240px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -30,3 +30,15 @@
 .card-product .card-product-infos {
   padding: 24px;
 }
+
+.card-product-infos {
+  width: 100%;
+}
+
+.card-buttons a {
+  margin-bottom: 16px;
+}
+
+// .flex-grow-1 {
+//   flex-grow: 1;
+// }

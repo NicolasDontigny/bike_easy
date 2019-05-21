@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     @booking.save!
+    flash[:notice] = "Booking successful"
 
     redirect_to bike_path(@bike.id)
   end
