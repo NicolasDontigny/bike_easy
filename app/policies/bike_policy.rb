@@ -6,11 +6,19 @@ class BikePolicy < ApplicationPolicy
   def show?
     true
   end
+<<<<<<< HEAD
 
   def edit?
     record.user == user
   end
 
+=======
+  
+  def edit?
+    record.user == user
+  end
+  
+>>>>>>> b3b6ff3c9efa705895ae652a4379685192c668cc
   def new?
     true
   end
