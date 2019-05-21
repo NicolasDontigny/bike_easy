@@ -5,6 +5,9 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  opacity: 1;
+  -webkit-transition: opacity 400ms linear;
+  transition: opacity 400ms linear;
 }
 
 .card-product img {
@@ -22,9 +25,11 @@
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  &.price-per-night {
+    font-size: 16px;
+  }
 }
 
 .card-product .card-product-infos {
@@ -39,6 +44,13 @@
   margin-bottom: 16px;
 }
 
-// .flex-grow-1 {
-//   flex-grow: 1;
-// }
+.alert.alert-deleted {
+  position: fixed;
+  bottom: auto;
+  top: 20px;
+  left: 2%;
+  right: 2%;
+  opacity: 1;
+  -webkit-transition: opacity 800ms linear;
+  transition: opacity 800ms linear;
+}
