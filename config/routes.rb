@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'pages#landing'
 
   get 'bikes', to: 'bikes#index', as: :bikes
 
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   get 'rentals', to: 'bookings#rentals', as: :rentals
 
-  post 'bookings', to: 'bookings#create'
+  post 'bikes/:id/bookings', to: 'bookings#create', as: :bike_bookings
 
   delete 'booking/:id', to: 'bookings#destroy', as: :booking
 end
