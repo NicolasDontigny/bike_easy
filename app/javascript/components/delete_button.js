@@ -44,7 +44,7 @@ const clickOnButton = (event) => {
 
         });
     } else {
-      swal("That was close!");
+      swal("Phewww, that was close!");
     }
   });
 
