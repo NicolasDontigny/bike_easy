@@ -80,7 +80,7 @@
 .specs__wrapper {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 45vw;
 }
 
 .specssheet {
@@ -88,7 +88,7 @@
   background-size: cover;
   background-position: center;
   height: 100%;
-  width: 80%;
+  width: 90%;
   border-radius: 5px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
   margin-right: 2rem;
@@ -98,7 +98,7 @@
 .specs {
   padding-top: 0.5rem;
   padding-left: 1rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2.2rem;
   list-style: none;
 }
 
@@ -141,6 +141,39 @@
   }
 }
 
+.fas.fa-phone-office {
+  font-size: 2rem;
+  color: #CB6B16;
+}
+
 .booking-form {
-  flex-grow: 1
+  width: 45vw;
+}
+
+abbr[title] {
+  text-decoration: none;
+}
+
+.custom__input {
+  border-radius: 10px;
+  width: 33%;
+}
+
+#booking__submit {
+  text-align: center;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: $green;
+  color: $light-gray;
+  opacity: 0.7;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: opacity 0.5s ease-in, box-shadow 0.5s ease-in-out;
+  &:hover {
+    box-shadow: 10px 10px 10px -5px rgba(200,200,200,1);
+    color: $light-gray;
+    text-decoration: none;
+    opacity: 1;
+  }
 }
