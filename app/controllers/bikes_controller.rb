@@ -1,5 +1,6 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @bikes = Bike.all
   end
