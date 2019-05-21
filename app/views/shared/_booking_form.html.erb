@@ -1,8 +1,8 @@
 <div class="col-xs-6 col-xs-offset-3">
   <%= simple_form_for [@bike, @booking] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= f.input :start_date, input_html:  { class: "select2 custom__input" } %>
+    <%= f.input :end_date, input_html:  { class: "select2 custom__input" } %>
     <%= hidden_field_tag(:bike_id, @bike.id) %>
-    <%= f.submit "Book this bike!", data: { confirm: 'Please, confirm your booking' }%>
+    <%= f.submit "Book this bike!", id: "booking__submit" %>
   <% end %>
 </div>
