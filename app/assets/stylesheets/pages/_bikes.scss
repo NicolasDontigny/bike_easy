@@ -16,6 +16,15 @@
     padding-left: 12px;
 }
 
+.card_link {
+    color: #484848;
+}
+
+.card_link:hover {
+    text-decoration: none;
+    color: #484848;
+}
+
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -39,14 +48,12 @@
     font-size: 16px;
     font-weight: bold;
     margin: 0;
-    text-decoration: none;
   }
   
   .card-bike p {
     font-size: 12px;
     opacity: .7;
     margin: 0;
-    text-decoration: none;
   }
   
   
