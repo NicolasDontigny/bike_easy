@@ -1,2 +1,30 @@
-<h1>Bikes#:index</h1>
-<p>Find me in app/views/bikes/:index.html.erb</p>
+<%# <h1>Bikes#:index</h1>
+<p>Find me in app/views/bikes/:index.html.erb</p> %>
+
+<div class="container">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+      <div class="banner-info">
+        <h1>Rent a bike whenever, wherever!</h1>
+        <p>Browse through numerous types of bikes specific to your needs!</p>
+        <a class="btn btn-primary" href="#">Learn More</a>
+      </div>
+    </div>
+
+    <div class="cards">
+        <% @bikes.each do |bike| %>
+            <div class="card-trip">
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+                <div class="card-trip-infos">
+                  <div>
+                    <h2><%= bike.name %></h2>
+                    <p><%= bike.description %></p>
+                  </div>
+                  <p class="card-trip-pricing">Rating: <%= bike.rating %></p>
+                  <%# <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/> %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+</div>
+
