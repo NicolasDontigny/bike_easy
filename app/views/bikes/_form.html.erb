@@ -1,10 +1,15 @@
 <%= simple_form_for @bike do |form| %>
   <%= form.input :name %>
   <%= form.input :category, collection: ['mountain', 'road', 'electric', 'fixi', 'bmx'] %>
+  <%= form.input :price, :label => "Price per Day" %>
   <%= form.input :description %>
   <%= form.input :gender, collection: ['M', 'F'] %>
   <%= form.input :size, collection: ['sm', 'md', 'lg'] %>
   <%= form.input :photo %>
   <%= form.input :photo_cache, as: :hidden %>
-  <%= form.submit "Create Bike", class: "btn btn-primary" %>
+  <% if @new %>
+    <%= form.submit "Create Bike", class: "btn btn-primary" %>
+  <% elsif @edit %>
+    <%= form.submit "Update Bike", class: "btn btn-primary" %>
+  <% end %>
 <% end %>

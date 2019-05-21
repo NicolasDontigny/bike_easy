@@ -1,0 +1,19 @@
+.btn-danger {
+  background-color: rgb(220, 53, 69);
+  border-color: rgb(220, 53, 69);
+  &:hover {
+    background-color: #C82333;
+    border-color: #C82333;
+  }
+}
+
+.btn-warning {
+  background-color: rgb(245, 192, 24);
+  border-color: rgb(245, 192, 24);
+  color: black;
+  &:hover {
+    background-color: #E0A714;
+    border-color: #E0A714;
+    color: black;
+  }
+}
