@@ -1,17 +1,24 @@
 <h1>Bookings</h1>
-<div class="d-flex justify-content-between align-items-center my-3">
+<div class="">
   <% @bookings.each do |booking| %>
     <% booked_user = User.find(booking.user_id) %>
     <% booked_bike = Bike.find(booking.bike_id) %>
     <div class="card-product my-3">
      <%= cl_image_tag booked_bike.photo %>
-      <div class="card-product-infos">
-        <p><%= booked_user.email %></p>
-        <p>Bike <%= booked_bike.name %></p>
-        <p>Beg <%= booking.start_date %></p>
-        <p>End <%= booking.end_date %></p>
-        <p>Status <%= booking.confirmed %></p>
+      <div class="card-product-infos d-flex flex-grow-1">
+        <div class="flex-grow-1">
+          <p><%= booked_user.first_name%> <%=booked_user.last_name %></p>
+          <p>Bike <%= booked_bike.name %></p>
+          <p><strong>FROM: </strong> <%= booking.start_date %>
+           <strong>   TO: </strong><%= booking.end_date %></p>
+          <p>Status <%= booking.confirmed %></p>
+        </div>
+        <div class="card-buttons d-flex flex-column">
+        <%= link_to 'Confirm', booking_confirm_path(booking), method: 'patch', class: "btn btn-secondary btn-sm", data: {action: 'confirm'}  %>
+        <%= link_to 'Cancel', booking_cancel_path(booking), method: 'patch',class: "btn btn-secondary btn-sm", data: {action: 'cancel'}  %>
       </div>
+      </div>
+
     </div>
 <% end %>
 
