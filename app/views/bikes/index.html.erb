@@ -22,13 +22,14 @@
                 <div class="card-bike">
                     <%= cl_image_tag(bike.photo) %>
                     <div class="card-bike-infos">
-                      <div>
-                        <h2><%= bike.name %></h2>
-                        <p><%= bike.description.capitalize %></p>
+
+                      <h2><%= bike.name %></h2>
+                      <p><%= bike.description.capitalize %></p>
+
+
+                      <div class="price d-flex justify-content-between">
                         <p>Rating: <%= bike.rating %></p>
-                      </div>
-                      <div class="price">
-                        <h6>$<%= bike.price %></h6>
+                        <h6>$<%= format('%.2f', bike.price) %></h6>
                       </div>
                     </div>
                 </div>
