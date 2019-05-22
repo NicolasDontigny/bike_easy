@@ -26,6 +26,10 @@
                       </div>
                     </div>
                 </div>
+        <% if user_signed_in? %>
+            <%# Do not show user's bikes %>
+            <% @bikes = @bikes.reject do |bike| %>
+                <% bike.user == current_user %>
             <% end %>
         <% end %>
     </div>
