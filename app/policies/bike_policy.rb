@@ -3,6 +3,10 @@ class BikePolicy < ApplicationPolicy
     true
   end
 
+  def index_map?
+    true
+  end
+
   def show?
     true
   end

@@ -6,6 +6,17 @@ class BikesController < ApplicationController
     @bikes = Bike.all
   end
 
+  def index_map
+    @bikes = Bike.where.not(latitude: nil, longitude: nil)
+
+    @markers = @bikes.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude
+      }
+    end
+  end
+
   def show
     @booking = Booking.new
     authorize @bike
@@ -67,6 +78,6 @@ class BikesController < ApplicationController
   end
 
   def params_permit
-    params.require(:bike).permit(:name, :category, :description, :gender, :size, :photo, :price)
+    params.require(:bike).permit(:name, :category, :description, :gender, :size, :photo, :price, :address)
   end
 end

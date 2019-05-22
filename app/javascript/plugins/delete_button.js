@@ -2,7 +2,7 @@ import swal from 'sweetalert';
 
 const clickOnButton = (event) => {
   const id = event.currentTarget.id;
-  const authToken = event.currentTarget.getAttribute('token')
+  const authToken = event.currentTarget.dataset.token
   const httpUrl = `/bikes/${id}`
   const bikeName = event.currentTarget.parentNode.parentNode.querySelector("h2").innerText;
 
