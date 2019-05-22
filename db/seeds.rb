@@ -1,31 +1,68 @@
 require 'faker'
 
 Bike.destroy_all
+User.destroy_all
 
-5.times do
-  bike = Bike.new(
-    name: Faker::Vehicle.make_and_model,
-    category: ["mountain", 'road', 'electric', 'fixi', 'bmx'].sample,
-    description: 'perfect for riding mountains',
-    gender: ['F', 'M'].sample,
-    rating: [1, 2, 3, 4, 5].sample,
-    size: ['sm', 'md', 'lg'].sample,
-    photo: 'www.google.ca'
-  )
-  bike.user = User.first
-  bike.save
-end
+guillaume = User.create(
+  first_name: 'Guillaume',
+  last_name: 'Grassiant',
+  postal_code: 'HG5',
+  email: 'guillaume@gmail.com',
+  password: '123456'
+)
 
-5.times do
-  bike = Bike.new(
-    name: Faker::Vehicle.make_and_model,
-    category: ["mountain", 'road', 'electric', 'fixi', 'bmx'].sample,
-    description: 'perfect for riding long roads',
-    gender: ['F', 'M'].sample,
-    rating: [1, 2, 3, 4, 5].sample,
-    size: ['sm', 'md', 'lg'].sample,
-    photo: 'www.google.ca'
-  )
-  bike.user = User.last
-  bike.save
+michael = User.create(
+  first_name: 'Michael',
+  last_name: 'Zhu',
+  postal_code: 'H8U',
+  email: 'michael@gmail.com',
+  password: '123456'
+)
+
+stephanie = User.create(
+  first_name: 'Stéphanie',
+  last_name: 'Bouchard',
+  postal_code: 'JK7',
+  email: 'steph@gmail.com',
+  password: '123456'
+)
+
+
+categories = ['Mountain', 'BMX', 'Road', 'Fixi', 'Electric', 'City', 'Fatbike']
+names = ['Pro', 'Lite', 'Extreme', 'Cozy', 'Sexy']
+
+users = [guillaume, michael, stephanie]
+
+photo_keys = ["bcbxnzaixehdlv5lecao", "fupjvvq2tihuxgaptveb", "p93rhxyuh9u6okwbwhmb", "evmvt6qqbywpgu3zp1sw", "bzdh3a53rh7t08cmcwso", "gnpg7dqftmrgrsqehxgx", "cvqfw7jpx7oj89yahl1r", "lifzcfowsmnj9bo7frel", "bgz6l0th3mc4a05n8uhv", "emmao9m5t79cl6psbrlr", "qfu8wcsxooq8rtp3qtxy", "y4tousqi7bmuho9mqpd8", "zxa8qwstliusfvmmlyaj", "yofdglmybmmix7n8rj52", "x67g4imqnh3jz0o9f9qy"]
+
+descriptions = [
+  'For a nice time in your city',
+  'For extreme sports fans, or anybody really',
+  'Can be perfect to commute to work',
+  'Your granny will love it',
+  'Charm your friends with this magestic bike'
+]
+
+users.each do |user|
+  4.times do
+    category = categories.sample
+    bike = Bike.new(
+      name: "#{category} #{names.sample}#{rand(8)}.#{rand(30)}",
+      category: category,
+      description: descriptions.sample,
+      gender: ['F', 'M'].sample,
+      rating: [1, 2, 3, 4, 5].sample,
+      size: ['sm', 'md', 'lg'].sample,
+      remote_photo_url: "https://res.cloudinary.com/da3vccwkh/image/upload/v1558553568/bike_eazy/" + photo_keys.sample,
+      price: rand * 50
+    )
+
+    bike.user = user
+
+    p bike
+    p bike.valid?
+    p bike.errors
+    bike.save
+  end
+
 end
