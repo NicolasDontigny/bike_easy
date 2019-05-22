@@ -1,6 +1,6 @@
 <%= simple_form_for @bike do |form| %>
   <%= form.input :name %>
-  <%= form.input :address, label: 'Postal Code', id: 'bike_address' %>
+  <%= form.input :address, id: 'bike_address' %>
   <%= form.input :category, collection: ['Mountain', 'BMX', 'Road', 'Fixi', 'Electric', 'City', 'Fatbike'] %>
   <%= form.input :price, :label => "Price per Day" %>
   <%= form.input :description %>
