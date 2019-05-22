@@ -2,10 +2,12 @@ import swal from 'sweetalert';
 
 
 const initSweetalert = () => {
+  const bikeName = document.querySelector('.bike__title').innerText;
   const options = {
     title: "Please confirm the booking",
     icon: "warning",
-    buttons: ['No, I cancel', "Yes, I'm sure"],
+    text: `Please confirm you want to book "${bikeName}"`,
+    buttons: ['Let me check with my wife...', "Let's ride!"],
     dangerMode: true,
   };
 
