@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'bikes', to: 'bikes#index', as: :bikes
 
+  get 'bikes/map', to: 'bikes#index_map', as: :bikes_map
+
   get 'bikes/new', to: 'bikes#new', as: :new_bike
 
   get 'bikes/:id', to: 'bikes#show', as: :bike

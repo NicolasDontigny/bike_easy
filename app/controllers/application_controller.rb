@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   # Pundit: white-list approach.
-  after_action :verify_authorized, except: [:index, :index_owner], unless: :skip_pundit?
+  after_action :verify_authorized, except: [:index, :index_owner, :index_map], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index_owner, unless: :skip_pundit?
 
   # Uncomment when you *really understand* Pundit!
