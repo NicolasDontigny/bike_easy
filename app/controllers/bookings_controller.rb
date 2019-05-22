@@ -22,6 +22,24 @@ class BookingsController < ApplicationController
     redirect_to bike_path(@bike.id)
   end
 
+  def confirm
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.confirmed = "confirmed"
+    @booking.save
+
+    redirect_to bookings_path
+  end
+
+  def cancel
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.confirmed = "cancelled"
+    @booking.save
+
+    redirect_to bookings_path
+  end
+
   def rentals
   end
 

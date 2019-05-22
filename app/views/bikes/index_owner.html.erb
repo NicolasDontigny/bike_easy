@@ -12,32 +12,35 @@
 </div>
 
 <% @bikes.each do |bike| %>
-  <div class="card-product my-3">
+  <div class="card-product my-5">
     <%= cl_image_tag bike.photo %>
     <div class="card-product-infos d-flex flex-grow-1">
-      <div class="flex-grow-1">
-        <h2><%= bike.name %></h2>
-        <h5>
-          <%= bike.category %>
-          <% if bike.gender == 'M' %>
-            (For Men)
-          <% else %>
-            (For Women)
-          <% end %>
-        </h5>
-        <p class="price-per-night"><%= bike.price.round(2) %> $</p>
-        <p class="description"><%= bike.description %></p>
-        <p class="size">
-          Size:
-          <% case bike.size %>
-          <% when 'sm' %>
-            Small
-          <% when 'md' %>
-            Medium
-          <% when 'lg' %>
-            Large
-          <% end %>
-        </p>
+      <div class="flex-grow-1 d-flex flex-column justify-content-between align-items-start">
+        <div class="">
+          <h2><%= bike.name %></h2>
+          <h5>
+            <%= bike.category %>
+            <% if bike.gender == 'M' %>
+              (For Men)
+            <% else %>
+              (For Women)
+            <% end %>
+          </h5>
+          <p class="price-per-night"><%= bike.price.round(2) %> $</p>
+          <p class="description"><%= bike.description %></p>
+          <p class="size">
+            Size:
+            <% case bike.size %>
+            <% when 'sm' %>
+              Small
+            <% when 'md' %>
+              Medium
+            <% when 'lg' %>
+              Large
+            <% end %>
+          </p>
+        </div>
+        <%= link_to "More info", bike_path(bike), class: "btn btn-primary mt-3" %>
       </div>
 
       <div class="card-buttons d-flex flex-column">

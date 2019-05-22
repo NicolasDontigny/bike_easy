@@ -11,22 +11,32 @@
     </div>
 
     <div class="cards">
+        <% if user_signed_in? %>
+            <%# Do not show user's bikes %>
+            <% @bikes = @bikes.reject do |bike| %>
+                <% bike.user == current_user %>
+            <% end %>
+        <% end %>
         <% @bikes.each do |bike| %>
             <%= link_to bike_path(bike.id), class:"card_link" do %>
                 <div class="card-bike">
-                    <%= cl_image_tag(bike.photo) %> 
+                    <%= cl_image_tag(bike.photo) %>
                     <div class="card-bike-infos">
-                      <div>
-                        <h2><%= bike.name %></h2>
-                        <p><%= bike.description.capitalize %></p>
+
+                      <h2><%= bike.name %></h2>
+                      <p><%= bike.description.capitalize %></p>
+
+
+                      <div class="price d-flex justify-content-between">
                         <p>Rating: <%= bike.rating %></p>
-                      </div>
-                      <div class="price">
-                        <h6>$<%= bike.price %></h6>
+                        <h6>$<%= format('%.2f', bike.price) %></h6>
                       </div>
                     </div>
                 </div>
             <% end %>
+
         <% end %>
     </div>
 </div>
+
+<%= link_to "MAP", bikes_map_path, id: 'map-button', class: 'btn btn-lg btn-maps' %>

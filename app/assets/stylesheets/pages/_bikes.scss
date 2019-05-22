@@ -35,31 +35,31 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 3px;
   }
-  
+
   .card-bike > img {
     height: 160px;
     width: 100%;
     object-fit: cover;
   }
-  
+
   .card-bike h2 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
   }
-  
+
   .card-bike p {
     font-size: 12px;
     opacity: .7;
     margin: 0;
   }
-  
+
   .card-bike .card-bike-infos {
     padding: 8px;
-    display: flex;
-    align-items: flex-end;
+    // display: flex;
+    // align-items: flex-end;
   }
-  
+
   .card-bike-infos {
     justify-content: space-between;
     text-align: left;
@@ -70,4 +70,3 @@
       text-align: right;
       margin-bottom: -8px;
   }
-  
