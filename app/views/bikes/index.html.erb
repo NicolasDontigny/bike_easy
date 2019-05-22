@@ -11,22 +11,28 @@
     </div>
 
     <div class="cards">
-        <% @bikes.each do |bike| %>
-            <%= link_to bike_path(bike.id), class:"card_link" do %>
-                <div class="card-bike">
-                    <%= cl_image_tag(bike.photo) %> 
-                    <div class="card-bike-infos">
-                      <div>
-                        <h2><%= bike.name %></h2>
-                        <p><%= bike.description.capitalize %></p>
-                        <p>Rating: <%= bike.rating %></p>
-                      </div>
-                      <div class="price">
-                        <h6>$<%= bike.price %></h6>
-                      </div>
-                    </div>
-                </div>
+        <% if user_signed_in? %>
+            <%# Do not show user's bikes %>
+            <% @bikes = @bikes.reject do |bike| %>
+                <% bike.user == current_user %>
             <% end %>
         <% end %>
+            <% @bikes.each do |bike| %>
+                <%= link_to bike_path(bike.id), class:"card_link" do %>
+                    <div class="card-bike">
+                        <%= cl_image_tag(bike.photo) %> 
+                        <div class="card-bike-infos">
+                        <div>
+                            <h2><%= bike.name %></h2>
+                            <p><%= bike.description.capitalize %></p>
+                            <p>Rating: <%= bike.rating %></p>
+                        </div>
+                        <div class="price">
+                            <h6>$<%= bike.price %></h6>
+                        </div>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
     </div>
 </div>
