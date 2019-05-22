@@ -38,16 +38,6 @@
   transition: opacity 0.4s ease;
 }
 
-.back-arrow {
-  position: absolute;
-  color: $light-gray;
-  top: 1rem;
-  left: 1rem;
-  font-size: 1.2rem;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
 .bike__title {
   position: relative;
 }
@@ -188,4 +178,8 @@ abbr[title] {
     text-decoration: none;
     opacity: 1;
   }
+}
+
+.swal-footer {
+  text-align: center;
 }

@@ -3,12 +3,16 @@ class BikePolicy < ApplicationPolicy
     true
   end
 
+  def index_map?
+    true
+  end
+
   def show?
     true
   end
 
   def edit?
-    record.user == user
+    user_owner?
   end
 
   def new?
@@ -20,16 +24,22 @@ class BikePolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    user_owner?
   end
 
   def destroy?
-    record.user == user
+    user_owner?
   end
 
   class Scope < Scope
     def resolve
       scope.where(user: user).order('created_at DESC')
     end
+  end
+
+  private
+
+  def user_owner?
+    record.user == user
   end
 end
