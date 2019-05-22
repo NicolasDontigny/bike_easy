@@ -35,6 +35,18 @@ users = [guillaume, michael, stephanie]
 
 photo_keys = ["bcbxnzaixehdlv5lecao", "fupjvvq2tihuxgaptveb", "p93rhxyuh9u6okwbwhmb", "evmvt6qqbywpgu3zp1sw", "bzdh3a53rh7t08cmcwso", "gnpg7dqftmrgrsqehxgx", "cvqfw7jpx7oj89yahl1r", "lifzcfowsmnj9bo7frel", "bgz6l0th3mc4a05n8uhv", "emmao9m5t79cl6psbrlr", "qfu8wcsxooq8rtp3qtxy", "y4tousqi7bmuho9mqpd8", "zxa8qwstliusfvmmlyaj", "yofdglmybmmix7n8rj52", "x67g4imqnh3jz0o9f9qy"]
 
+addresses = [
+  "H1V 1B3",
+  "H1S 1K3",
+  "H1Z 4P3",
+  "H4T 1M8",
+  "H7P 0A5",
+  "H1Z 4E9",
+  "6893 Sherbrooke St E, Montreal",
+  "700 Rue Georges-Bizet, Montréal",
+  "255 Chemin Île Ste Marguerite, Boucherville"
+]
+
 descriptions = [
   'For a nice time in your city',
   'For extreme sports fans, or anybody really',
@@ -43,13 +55,18 @@ descriptions = [
   'Charm your friends with this magestic bike'
 ]
 
+
+
 users.each do |user|
   4.times do
     category = categories.sample
     bike = Bike.new(
-      name: "#{category} #{names.sample}#{rand(8)}.#{rand(30)}",
+      name: "#{category} #{names.sample} #{rand(8)}.#{rand(30)}",
       category: category,
       description: descriptions.sample,
+      address: addresses.sample,
+      latitude: rand * 1 + 44.5,
+      longitude: rand * -1 - 72.5,
       gender: ['F', 'M'].sample,
       rating: [1, 2, 3, 4, 5].sample,
       size: ['sm', 'md', 'lg'].sample,
@@ -60,8 +77,6 @@ users.each do |user|
     bike.user = user
 
     p bike
-    p bike.valid?
-    p bike.errors
     bike.save
   end
 
