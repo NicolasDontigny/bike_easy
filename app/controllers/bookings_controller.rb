@@ -9,10 +9,15 @@ class BookingsController < ApplicationController
     @bike = Bike.find(params[:bike_id])
     @booking.bike = @bike
     @booking.user = current_user
-    authorize @booking
-    @booking.save!
-    @bike.dates[@booking.id] = [@booking.start_date, @booking.end_date]
-    @bike.save!
+
+    @bike.dates.each_value do |value|
+      if @bike.dates.indlude?(value)
+        @bike.dates[@booking.id] = [@booking.start_date, @booking.end_date]
+        @bike.save!
+        @booking.save!
+        authorize @booking
+      end
+    end
 
     redirect_to bike_path(@bike.id)
   end
