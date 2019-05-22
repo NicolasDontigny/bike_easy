@@ -11,6 +11,12 @@
     </div>
 
     <div class="cards">
+        <% if user_signed_in? %>
+            <%# Do not show user's bikes %>
+            <% @bikes = @bikes.reject do |bike| %>
+                <% bike.user == current_user %>
+            <% end %>
+        <% end %>
         <% @bikes.each do |bike| %>
             <%= link_to bike_path(bike.id), class:"card_link" do %>
                 <div class="card-bike">
@@ -26,14 +32,7 @@
                       </div>
                     </div>
                 </div>
-
-
-        <% if user_signed_in? %>
-            <%# Do not show user's bikes %>
-            <% @bikes = @bikes.reject do |bike| %>
-                <% bike.user == current_user %>
             <% end %>
-        <% end %>
 
         <% end %>
     </div>
