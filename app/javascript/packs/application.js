@@ -5,7 +5,7 @@ import { deleteButton } from 'plugins/delete_button'
 import 'select2/dist/css/select2.css';
 
 import { initSelect2 } from '../plugins/initSelect2';
-import { initSweetalert } from '../plugins/init_sweetalert';
+import { initSweetalertBooking } from '../components/init_sweetalert_booking';
 
 // Import mapbox function and and css
 import { initMapbox } from '../plugins/init_mapbox';
@@ -17,7 +17,7 @@ console.log('Hello World from BikeEazy')
 
 initSelect2();
 
-initSweetalert();
+initSweetalertBooking();
 
 initMapbox();
 
