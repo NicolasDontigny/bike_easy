@@ -11,6 +11,12 @@ import { initSweetalertBooking } from '../components/init_sweetalert_booking';
 import { initMapbox } from '../plugins/init_mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+// Map Search feature
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+
+// Input address autocomplete
+import { initAutocomplete } from '../plugins/init_autocomplete';
+
 deleteButton();
 
 console.log('Hello World from BikeEazy')
@@ -20,4 +26,6 @@ initSelect2();
 initSweetalertBooking();
 
 initMapbox();
+
+initAutocomplete();
 
