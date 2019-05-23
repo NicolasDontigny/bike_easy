@@ -21,12 +21,12 @@ class BikesController < ApplicationController
   def show
     @booking = Booking.new
     authorize @bike
-    # @bike__markers = {
-    #   lat: @bike.latitude,
-    #   lng: @bike.longitude,
+    @bike__markers = {
+      lat: @bike.latitude,
+      lng: @bike.longitude,
 
-    #   infoWindow: render_to_string(partial: "infowindow", locals: { bike: @bike })
-    # }
+      infoWindow: render_to_string(partial: "infowindow", locals: { bike: @bike })
+    }
   end
 
   def index_owner

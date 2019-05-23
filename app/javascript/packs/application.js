@@ -9,6 +9,7 @@ import { initSweetalertBooking } from '../components/init_sweetalert_booking';
 
 // Import mapbox function and and css
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMapboxBike } from '../components/initMapboxBike';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Map Search feature
