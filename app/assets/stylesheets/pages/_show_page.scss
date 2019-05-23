@@ -111,10 +111,10 @@
 .skidmarks {
   opacity: 0;
   @media screen and (min-width: 900px) {
-    opacity: 0.6;
+    opacity: 0.5;
     position: absolute;
     right: -5rem;
-    top: 5rem;
+    top: 1rem;
     width: 10rem;
     transform: rotate(-20deg);
   }
@@ -123,7 +123,7 @@
 .skidmarks2 {
   opacity: 0;
   @media screen and (min-width: 900px) {
-    opacity: 0.6;
+    opacity: 0.5;
     position: absolute;
     right: -3rem;
     bottom: 1rem;
