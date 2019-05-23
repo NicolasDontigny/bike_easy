@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+  
   has_many :bookings
   has_many :bikes
   has_many :users, through: :bikes

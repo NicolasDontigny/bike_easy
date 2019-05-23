@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :postal_code])
+
+    # Avatar upload picutre after signing up
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password,
+      :password_confirmation, :current_password, :avatar, :avatar_cache, :remove_avatar) }
   end
 
   # Pundit: white-list approach.
