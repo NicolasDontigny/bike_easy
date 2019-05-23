@@ -21,6 +21,12 @@ class BikesController < ApplicationController
   def show
     @booking = Booking.new
     authorize @bike
+    @bike__markers = {
+      lat: @bike.latitude,
+      lng: @bike.longitude,
+
+      infoWindow: render_to_string(partial: "infowindow", locals: { bike: @bike })
+    }
   end
 
   def index_owner
@@ -42,13 +48,15 @@ class BikesController < ApplicationController
     new_bike.rating = [1, 2, 3, 4, 5].sample
     new_bike.user = current_user
 
-    new_bike.save
+    new_bike.save!
 
+    flash[:just_created] = "Created \"#{new_bike.name}\" Successfully!"
+
+    # redirect_to my_bikes_path, just_created: "Created #{new_bike.name} successfully!"
     redirect_to my_bikes_path
   end
 
   def edit
-
     @edit = true
     authorize @bike
   end
@@ -58,8 +66,9 @@ class BikesController < ApplicationController
 
     @bike.update(params_permit)
 
-    redirect_to my_bikes_path
+    flash[:just_updated] = "Updated \"#{@bike.name}\" Successfully!"
 
+    redirect_to my_bikes_path
   end
 
   def destroy
@@ -79,6 +88,6 @@ class BikesController < ApplicationController
   end
 
   def params_permit
-    params.require(:bike).permit(:name, :category, :description, :gender, :size, :photo, :price, :address)
+    params.require(:bike).permit(:name, :category, :size, :photo, :price, :address)
   end
 end

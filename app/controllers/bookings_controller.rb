@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @current_user = current_user
-    @bookings = Booking.all
+    @bookings = Booking.where(user_id: @current_user).order("id")
   end
 
   def create
@@ -11,6 +11,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     @booking.save!
+    @bike.dates[@booking.id] = [@booking.start_date, @booking.end_date]
+    @bike.save!
   end
 
   def confirm
@@ -18,6 +20,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.confirmed = "confirmed"
     @booking.save
+
 
     redirect_to bookings_path
   end
@@ -28,11 +31,24 @@ class BookingsController < ApplicationController
     @booking.confirmed = "cancelled"
     @booking.save
 
+
     redirect_to bookings_path
   end
 
   def rentals
+    authorize @booking
   end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+
+    @booking.destroy
+
+    redirect_to bookings_path
+  end
+
+  private
 
   def review_params
     params.require(:booking).permit(:start_date, :end_date, :bike_id)

@@ -55,8 +55,6 @@ descriptions = [
   'Charm your friends with this magestic bike'
 ]
 
-
-
 users.each do |user|
   4.times do
     category = categories.sample
@@ -76,7 +74,6 @@ users.each do |user|
 
     bike.user = user
 
-    p bike
     bike.save
   end
 

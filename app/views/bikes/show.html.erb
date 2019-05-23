@@ -15,9 +15,9 @@
       <h4 class="specs__title">Specs sheet</h4>
       <ul class="specs">
         <li class="spec__info"><strong>Category:</strong> <%=@bike.category %></li>
-        <li class="spec__info"><strong>Description:</strong> <%= @bike.description %></li>
+<!--         <li class="spec__info"><strong>Description:</strong> <%= @bike.description %></li>
         <li class="spec__info"><strong>Gender:</strong> <%=@bike.gender %></li>
-        <li class="spec__info"><strong>Size:</strong> <%= @bike.size %></li>
+        <li class="spec__info"><strong>Size:</strong> <%= @bike.size %></li> -->
         <li class="spec__info"><strong>Price:</strong> $<%= @bike.price %></li>
         <% counter = 0 %>
         <li class="spec__info"><strong>Rating:</strong> <% 5.times do %>
@@ -29,12 +29,23 @@
       <%= image_tag 'skidmarks.png', class: "skidmarks" %>
       <%= image_tag 'skidmarks.png', class: "skidmarks2" %>
     </div>
+  </div>
+  <div class="booking-form">
+    <h4 class="specs__title book-me">Book me!</h4>
+    <%= render "shared/booking_form", bike: @bike, booking: @booking %>
+    <% if @bike.user != current_user %>
     <p class="contact">Any questions, comments, request?
       <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact the owner</a>
     </p>
-  </div>
-  <div class="booking-form">
-    <h4 class="specs__title">Book me!</h4>
-    <%= render "shared/booking_form", bike: @bike, booking: @booking %>
+    <% end %>
   </div>
 </div>
+
+<h4 class="specs__title map__title">How far is it?</h4>
+<div
+  id="map_bike"
+  style="width: 100%;
+  height: 20rem;"
+  data-markers="<%= @bike__markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>

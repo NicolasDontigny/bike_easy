@@ -8,9 +8,15 @@ class Bike < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  validates :name, :category, :description, :photo, :gender, :size, :price, presence: true
+  validates :name, :photo, :price, presence: true
   validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }
-  validates :gender, inclusion: { in: ['M', 'F'] }
-  validates :size, inclusion: { in: ['sm', 'md', 'lg'] }
+  # validates :gender, inclusion: { in: ['M', 'F'] }
+  # validates :size, inclusion: { in: ['sm', 'md', 'lg'] }
   validates :category, inclusion: { in: ['Mountain', 'BMX', 'Road', 'Fixi', 'Electric', 'City', 'Fatbike'] }
+
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end

@@ -1,13 +1,13 @@
 <% if bike.user != current_user %>
-  <div class="col-xs-6 col-xs-offset-3">
-    <%= simple_form_for [@bike, @booking] do |f| %>
-      <%= f.input :start_date, input_html:  { class: "select2 custom__input" } %>
-      <%= f.input :end_date, input_html:  { class: "select2 custom__input" } %>
+  <div class="col-xs-6 col-xs-offset-3 form__wrapper" data-unavailable="<%= bike.unavailable_dates.to_json %>">
+    <%= simple_form_for ([@bike, @booking]) do |f| %>
+      <%= f.input :start_date, as: :date, html5: true, input_html:  { class: "custom__input" } %>
+      <%= f.input :end_date, as: :date, html5: true, disabled: true, input_html:  { class: "custom__input" } %>
       <%= hidden_field_tag(:bike_id, @bike.id) %>
       <%= f.submit "Book this bike!", id: "booking__submit" %>
     <% end %>
   </div>
   <% else %>
-  <p>Sorry, you can't book your own bike <i class="fas fa-sad-tear"></i></p>
-  <span class="tip">(psttt, just don't put it up for rent if you want to ride it...)</span>
+    <p>Sorry, you can't book your own bike <i class="fas fa-sad-tear"></i></p>
+    <span class="tip">(psttt, just don't put it up for rent if you want to ride it...)</span>
 <% end %>

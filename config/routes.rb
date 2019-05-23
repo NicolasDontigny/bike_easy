@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   patch 'bookings/:id/confirm', to: 'bookings#confirm', as: :booking_confirm
   patch 'bookings/:id/cancel', to: 'bookings#cancel', as: :booking_cancel
 
-  delete 'bookings/:id', to: 'bookings#destroy'
+  delete 'bookings/:id', to: 'bookings#destroy', as: :booking_del
 
   get 'my-bikes', to: "bikes#index_owner", as: :my_bikes
 end
