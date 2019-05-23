@@ -33,7 +33,7 @@ class BikePolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.where(user: user).order('created_at DESC')
+      scope.where(user: user).order('updated_at DESC')
     end
   end
 
