@@ -19,11 +19,11 @@ const initSweetalertBooking = () => {
         event.preventDefault();
         swal(options).then((value) => {
           if (value) {
-            form.submit();
             swal("Done! Get yo' helmet on!", {
               icon: "success",
             });
-          }else {
+            form.submit();
+          } else {
             swal("No worries! Walking is cool too.");
           }
         });

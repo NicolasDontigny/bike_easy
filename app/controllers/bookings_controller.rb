@@ -11,8 +11,6 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     @booking.save!
-
-    redirect_to bike_path(@bike.id)
   end
 
   def confirm
