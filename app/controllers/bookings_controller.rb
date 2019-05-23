@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     @booking.confirmed = "confirmed"
     @booking.save
 
+
     redirect_to bookings_path
   end
 
@@ -30,10 +31,12 @@ class BookingsController < ApplicationController
     @booking.confirmed = "cancelled"
     @booking.save
 
+
     redirect_to bookings_path
   end
 
   def rentals
+    authorize @booking
   end
 
   def review_params
