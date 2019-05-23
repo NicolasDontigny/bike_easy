@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @current_user = current_user
-    @bookings = Booking.all
+    @bookings = Booking.where(user_id: @current_user).order("id")
   end
 
   def create
@@ -36,6 +36,17 @@ class BookingsController < ApplicationController
   def rentals
     authorize @booking
   end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+
+    @booking.destroy
+
+    redirect_to bookings_path
+  end
+
+  private
 
   def review_params
     params.require(:booking).permit(:start_date, :end_date, :bike_id)
