@@ -4,7 +4,7 @@
   </div>
 <% end %>
 
-<div class="d-flex justify-content-between align-items-center my-3">
+<div class="d-flex justify-content-between align-items-center my-3 top-header">
   <h1>My Bikes</h1>
 
   <%= link_to "Add a new bike to rent", new_bike_path, class: "btn btn-success btn-lg" %>
@@ -19,20 +19,28 @@
         <div class="flex-grow-1">
           <div class="info-header d-flex justify-content-between align-items-center">
             <p class="bike-title"><%= bike.name %></p>
-            <p class="price-per-night"><%= format('%.2f', bike.price) %>$ per day</p>
+            <p class="category mt-0">
+              <%= bike.category %>
+            </p>
           </div>
-          <p class="reviews">
-            <% bike.rating.times do %>
-              <i class="fas fa-star star-green"></i>
-            <% end %>
-            (<%= rand(100) %> reviews)
-          </p>
 
-          <p class="category mt-0">
-            (<%= bike.category %>)
-          </p>
+          <div class="category-reviews d-flex justify-content-between align-items-center"">
 
-          <p class="description"><%= bike.description %></p>
+
+            <p class="price-per-night"><%= format('%.2f', bike.price) %>$ per day</p>
+
+            <p class="reviews">
+              <% bike.rating.times do %>
+                <i class="fas fa-star star-green"></i>
+              <% end %>
+              (<%= rand(100) %> reviews)
+            </p>
+          </div>
+
+
+
+
+          <!-- <p class="description"><%= bike.description %></p> -->
 
         </div>
 
