@@ -140,6 +140,18 @@
   margin-top: 2rem;
 }
 
+.owner__link {
+  color: #CB6B16;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.5s ease-in;
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #CB6B16;
+  };
+}
+
 .mailto {
   margin-left: 1rem;
   text-align: center;

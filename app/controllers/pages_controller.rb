@@ -8,4 +8,8 @@ class PagesController < ApplicationController
       redirect_to(bikes_path)
     end
   end
+
+  def profile
+    @user = User.find(params[:id])
+  end
 end
