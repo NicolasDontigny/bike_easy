@@ -1,6 +1,6 @@
 .card-product {
   overflow: hidden;
-  height: 300px;
+  height: 210px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -36,6 +36,7 @@
   &.category {
     font-size: 18px;
     font-style: italic;
+    margin: 8px 0;
   }
   &.price-per-night {
     margin: 0;
@@ -47,7 +48,8 @@
   }
   &.reviews {
     font-size: 16px;
-    margin: 8px 0;
+
+    margin-bottom: 16px;
   }
 }
 
@@ -69,6 +71,11 @@
   }
 }
 
+.top-header {
+  width: 90%;
+  margin: auto;
+}
+
 
 .alert.alert-deleted {
   position: fixed;
@@ -86,6 +93,11 @@
   .card-product {
     width: 100%
   }
+
+  .top-header {
+    width: 100%;
+    margin: auto;
+  }
 }
 
 @media (max-width: 990px) {
@@ -101,6 +113,21 @@
     width: 100%;
     height: 300px;
     object-fit: cover;
+  }
+
+  .category-reviews {
+    margin-bottom: 8px;
+  }
+
+  .top-header {
+    display: block !important;
+    text-align: center;
+    width: 500px;
+    margin: 1rem auto;
+    .btn-success {
+      margin-top: 16px;
+      display: block;
+    }
   }
 
 }
@@ -123,6 +150,13 @@
     display: block !important;
   }
 
+  .category-reviews {
+    display: block !important;
+    .category {
+      margin-top: 8px !important;
+    }
+  }
+
   .bike-title {
     margin-bottom: 8px !important;
   }
@@ -130,6 +164,17 @@
   .description {
     margin-top: 24px !important;
     margin-bottom: 32px !important;
+  }
+
+  .top-header {
+    display: block !important;
+    text-align: center;
+    width: 350px;
+    margin: 1rem auto;
+    .btn-success {
+      margin-top: 16px;
+      display: block;
+    }
   }
 
 }
@@ -146,5 +191,9 @@
     width: 100%;
     height: 150px;
     object-fit: cover;
+  }
+
+  .top-header {
+    width: 90vw;
   }
 }
