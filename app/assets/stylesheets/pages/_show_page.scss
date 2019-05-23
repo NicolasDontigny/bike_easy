@@ -85,12 +85,15 @@
   background-image: url('https://static.brusheezy.com/system/resources/previews/000/018/482/non_2x/notebook-paper-texture-photoshop-textures.jpg');
   background-size: cover;
   background-position: center;
-  height: 100%;
+  height: 20%;
   width: 85%;
   border-radius: 5px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
   margin-right: 2rem;
   position:relative;
+  @media screen and (min-width: 900px) {
+    height: 100%;
+  }
 }
 
 .specs {

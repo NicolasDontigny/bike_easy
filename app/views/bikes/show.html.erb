@@ -25,6 +25,16 @@
             <% counter += 1 %>
           <% end %>
         </li>
+        <li class="spec__info"><strong>Owner:</strong>
+          <% if @owner.avatar?  %>
+            <%= link_to user_profile_path(@owner.id) do %>
+              <%= cl_image_tag("@owner.avatar") %>
+            <% end %>
+          <% else %>
+            <%= @owner.first_name %>
+          <% end %>
+        </li>
+
       </ul>
       <%= image_tag 'skidmarks.png', class: "skidmarks" %>
       <%= image_tag 'skidmarks.png', class: "skidmarks2" %>
@@ -35,7 +45,7 @@
     <%= render "shared/booking_form", bike: @bike, booking: @booking %>
     <% if @bike.user != current_user %>
     <p class="contact">Any questions, comments, request?
-      <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact the owner</a>
+      <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact <%= @owner.first_name %></a>
     </p>
     <% end %>
   </div>

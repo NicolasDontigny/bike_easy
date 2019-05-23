@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   delete 'bookings/:id', to: 'bookings#destroy', as: :booking_del
 
   get 'my-bikes', to: "bikes#index_owner", as: :my_bikes
+
+  get 'users/:id/profile', to: "pages#profile", as: :user_profile
 end
