@@ -1,0 +1,200 @@
+.card-bookings {
+  overflow: hidden;
+  height: 210px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  -webkit-transition: opacity 400ms linear;
+  transition: opacity 400ms linear;
+  width: 90%;
+  margin: auto;
+}
+
+.card-bookings img {
+  width: 350px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-bookings h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-bookings p {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 0;
+  margin-top: 8px;
+  &.bike-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+  }
+  &.category {
+    font-size: 18px;
+    font-style: italic;
+    margin: 8px 0;
+  }
+  &.price-per-night {
+    margin: 0;
+    font-size: 20px;
+  }
+  &.description {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  &.reviews {
+    font-size: 16px;
+
+    margin-bottom: 16px;
+  }
+}
+
+
+.card-bookings .card-bookings-infos {
+  padding: 32px;
+  height: 100%;
+  width: 100%;
+}
+
+.card-bookings-infos .info-text {
+  width: 100%;
+}
+
+.card-buttons {
+  width: 100%;
+  .edit-btn {
+    margin-right: 16px;
+  }
+}
+
+.top-header {
+  width: 90%;
+  margin: auto;
+}
+
+
+.alert.alert-deleted {
+  position: fixed;
+  bottom: auto;
+  top: 20px;
+  left: 2%;
+  right: 2%;
+  opacity: 1;
+  -webkit-transition: opacity 800ms linear;
+  transition: opacity 800ms linear;
+}
+
+
+@media (max-width: 1100px) {
+  .card-bookings {
+    width: 100%
+  }
+
+  .top-header {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 990px) {
+  .card-bookings {
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    margin: auto;
+    height: auto;
+  }
+
+  .card-bookings img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .category-reviews {
+    margin-bottom: 8px;
+  }
+
+  .top-header {
+    display: block !important;
+    text-align: center;
+    width: 500px;
+    margin: 1rem auto;
+    .btn-success {
+      margin-top: 16px;
+      display: block;
+    }
+  }
+
+}
+
+@media (max-width: 560px) {
+  .card-bookings {
+
+    width: 350px;
+    margin: auto;
+    height: auto;
+  }
+
+  .card-bookings img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .info-header {
+    display: block !important;
+  }
+
+  .category-reviews {
+    display: block !important;
+    .category {
+      margin-top: 8px !important;
+    }
+  }
+
+  .bike-title {
+    margin-bottom: 8px !important;
+  }
+
+  .description {
+    margin-top: 24px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .top-header {
+    display: block !important;
+    text-align: center;
+    width: 350px;
+    margin: 1rem auto;
+    .btn-success {
+      margin-top: 16px;
+      display: block;
+    }
+  }
+
+}
+
+@media (max-width: 400px) {
+  .card-bookings {
+
+    width: 90vw;
+    margin: auto;
+    height: auto;
+  }
+
+  .card-bookings img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .top-header {
+    width: 90vw;
+  }
+}
+
