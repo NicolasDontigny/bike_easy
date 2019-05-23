@@ -4,7 +4,26 @@ class BikesController < ApplicationController
 
   def index
     @no_container = true
-    @bikes = Bike.all
+    category = params[:category]
+    if params[:query].present?
+
+      if category == "All"
+        sql_query = " \
+          name @@ :query \
+        "
+        @bikes = Bike.where(sql_query, query: "%#{params[:query]}%")
+      else
+        sql_query = " \
+          name @@ :query \
+          AND category = :category
+        "
+        @bikes = Bike.where(sql_query, query: "%#{params[:query]}%", category: params[:category])
+      end
+
+      @message = "We found #{@bikes.count} bikes matching your search"
+    else
+      @bikes = Bike.all
+    end
   end
 
   def index_map
@@ -28,6 +47,7 @@ class BikesController < ApplicationController
 
       infoWindow: render_to_string(partial: "infowindow", locals: { bike: @bike })
     }
+    @owner = User.find(@bike.user_id)
   end
 
   def index_owner

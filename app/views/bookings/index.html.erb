@@ -22,7 +22,6 @@
       <div class="card-buttons-booked d-flex flex-column align-items-end">
       <% case booking.confirmed %>
       <% when "pending" %>
-        <%= link_to 'Confirm', booking_confirm_path(booking), method: 'patch', class: "btn btn-primary btn-sm my-2" %>
         <%= link_to 'Cancel', booking_cancel_path(booking), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
       <% when "confirmed" %>
         <%= link_to 'Cancel', booking_cancel_path(booking), method: 'patch',class: "btn btn-danger btn-sm my-2" %>

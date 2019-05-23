@@ -10,9 +10,19 @@ class BookingsController < ApplicationController
     @booking.bike = @bike
     @booking.user = current_user
     authorize @booking
-    @booking.save!
-    @bike.dates[@booking.id] = [@booking.start_date, @booking.end_date]
-    @bike.save!
+    if @booking.save
+      @bike.dates[@booking.id] = [@booking.start_date, @booking.end_date]
+      @bike.save
+      redirect_to bike_path(@bike)
+    else
+      @bike__markers = {
+        lat: @bike.latitude,
+        lng: @bike.longitude,
+
+        infoWindow: render_to_string(partial: "bikes/infowindow", locals: { bike: @bike })
+      }
+      render 'bikes/show'
+    end
   end
 
   def confirm
@@ -20,7 +30,6 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.confirmed = "confirmed"
     @booking.save
-
 
     redirect_to rentals_path
   end
@@ -30,7 +39,6 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.confirmed = "cancelled"
     @booking.save
-
 
     redirect_to bookings_path
   end
