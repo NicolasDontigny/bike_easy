@@ -1,8 +1,9 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show index_map]
 
   def index
+    @no_container = true
     @bikes = Bike.all
   end
 
