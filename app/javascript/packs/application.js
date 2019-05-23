@@ -17,7 +17,12 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 // Input address autocomplete
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
-import { displayAlert } from '../plugins/bike_alert'
+// display the Created Successfully alert
+import { displayAlert } from '../plugins/bike_alert';
+
+// Disable dates already booked
+import { toggleDateInputs } from '../components/booking';
+
 
 deleteButton();
 
@@ -31,5 +36,9 @@ initMapbox();
 
 initAutocomplete();
 
+
 displayAlert();
+
+
+toggleDateInputs();
 
