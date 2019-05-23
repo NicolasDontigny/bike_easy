@@ -24,7 +24,10 @@ Rails.application.routes.draw do
 
   post 'bikes/:id/bookings', to: 'bookings#create', as: :bike_bookings
 
-  delete 'booking/:id', to: 'bookings#destroy', as: :booking
+  patch 'bookings/:id/confirm', to: 'bookings#confirm', as: :booking_confirm
+  patch 'bookings/:id/cancel', to: 'bookings#cancel', as: :booking_cancel
+
+  delete 'bookings/:id', to: 'bookings#destroy'
 
   get 'my-bikes', to: "bikes#index_owner", as: :my_bikes
 end

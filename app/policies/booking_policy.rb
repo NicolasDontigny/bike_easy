@@ -3,6 +3,14 @@ class BookingPolicy < ApplicationPolicy
     record.bike.user != user
   end
 
+  def confirm?
+    true
+  end
+
+  def cancel?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all

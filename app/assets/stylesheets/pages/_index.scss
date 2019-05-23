@@ -9,3 +9,20 @@
   width: 90%;
   margin: auto;
 }
+
+#map-button {
+  position: fixed;
+  bottom: 20px;
+  right: 45%;
+  left: 45%;
+  z-index: 1000;
+}
+
+.btn-maps {
+  background-color: white;
+  border-radius: 5px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  background-color: #FFB7B7;
+}
