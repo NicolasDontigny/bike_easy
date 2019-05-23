@@ -29,12 +29,14 @@
       <%= image_tag 'skidmarks.png', class: "skidmarks" %>
       <%= image_tag 'skidmarks.png', class: "skidmarks2" %>
     </div>
+  </div>
+  <div class="booking-form">
+    <h4 class="specs__title book-me">Book me!</h4>
+    <%= render "shared/booking_form", bike: @bike, booking: @booking %>
+    <% if @bike.user != current_user %>
     <p class="contact">Any questions, comments, request?
       <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact the owner</a>
     </p>
-  </div>
-  <div class="booking-form">
-    <h4 class="specs__title">Book me!</h4>
-    <%= render "shared/booking_form", bike: @bike, booking: @booking %>
+    <% end %>
   </div>
 </div>

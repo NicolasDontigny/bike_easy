@@ -13,4 +13,10 @@ class Bike < ApplicationRecord
   validates :gender, inclusion: { in: ['M', 'F'] }
   validates :size, inclusion: { in: ['sm', 'md', 'lg'] }
   validates :category, inclusion: { in: ['Mountain', 'BMX', 'Road', 'Fixi', 'Electric', 'City', 'Fatbike'] }
+
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
