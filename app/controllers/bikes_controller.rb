@@ -68,7 +68,6 @@ class BikesController < ApplicationController
 
     flash[:just_updated] = "Updated \"#{@bike.name}\" Successfully!"
 
-
     redirect_to my_bikes_path
   end
 
@@ -89,6 +88,6 @@ class BikesController < ApplicationController
   end
 
   def params_permit
-    params.require(:bike).permit(:name, :size, :photo, :price, :address)
+    params.require(:bike).permit(:name, :category, :size, :photo, :price, :address)
   end
 end
