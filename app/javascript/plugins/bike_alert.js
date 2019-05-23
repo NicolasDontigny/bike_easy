@@ -4,16 +4,24 @@ export const displayAlert = () => {
   const createButton = document.querySelector('#created-alert')
   if (createButton) {
     swal({
+      // title: createButton.innerHTML,
       title: createButton.innerText,
-      // text: `This will delete "${bikeName}" permanently from your account`,
       icon: "success",
       buttons: false
     })
-    .then((value) => {
-      console.log("hello")
-      const swalAlert = document.querySelector('.swal-modal');
-      console.log(swalAlert);
-      swalAlert.setAttribute("id", "swal-created");
-    })
+
+    const swalOverlay = document.querySelector('.swal-overlay');
+    swalOverlay.setAttribute("id", "swal-created-overlay");
+
+    const swalAlert = document.querySelector('.swal-modal');
+    swalAlert.setAttribute("id", "swal-created");
+
+    setTimeout(() => {
+      swalOverlay.style.opacity = 0;
+    }, 2000)
+
+    setTimeout(() => {
+      swalOverlay.remove();
+    }, 3000);
   }
 }

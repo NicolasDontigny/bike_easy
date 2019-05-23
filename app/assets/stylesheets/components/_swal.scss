@@ -1,0 +1,18 @@
+#swal-created {
+  // background-color: hsla(98,55%,69%,.2);
+  // background-color: rgba(192, 234, 193, 0.5);
+  padding: 0 32px;
+  width: auto;
+  // max-width: 478px;
+  .swal-title {
+    padding-bottom: 13px;
+  }
+  -webkit-transition: opacity 400ms linear;
+  transition: opacity 400ms linear;
+}
+
+#swal-created-overlay {
+  background-color: rgba(0,0,0,.3);
+  -webkit-transition: opacity 400ms linear;
+  transition: opacity 400ms linear;
+}
