@@ -1,5 +1,7 @@
 import swal from 'sweetalert';
 
+const swalButton = document.getElementById('booking__submit');
+const form = document.getElementById('new_booking');
 
 const initSweetalertBooking = () => {
   const bikeName = document.querySelector('.bike__title');
@@ -12,15 +14,19 @@ const initSweetalertBooking = () => {
       dangerMode: true,
     };
 
-    const swalButton = document.getElementById('booking__submit');
-    const form = document.getElementById('new_booking');
-
     if(swalButton) {
       swalButton.addEventListener('click', (event) => {
         event.preventDefault();
         swal(options).then((value) => {
-          if (value) { form.submit(); };
-        })
+          if (value) {
+            swal("Done! Get yo' helmet on!", {
+              icon: "success",
+            });
+            form.submit();
+          } else {
+            swal("No worries! Walking is cool too.");
+          }
+        });
       });
     };
   }
