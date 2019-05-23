@@ -19,7 +19,7 @@
         <div class="flex-grow-1">
           <div class="info-header d-flex justify-content-between align-items-center">
             <p class="bike-title"><%= bike.name %></p>
-            <p class="price-per-night"><%= bike.price.round(2) %>$ per day</p>
+            <p class="price-per-night"><%= format('%.2f', bike.price) %>$ per day</p>
           </div>
           <p class="reviews">
             <% bike.rating.times do %>
