@@ -10,3 +10,7 @@ abbr[title], abbr[data-original-title] {
   font-style: italic;
   font-weight: lighter;
 }
+
+.form-control.mx-1.date.required.custom__input {
+  margin-left: 0 !important;
+}
