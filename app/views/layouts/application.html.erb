@@ -18,11 +18,11 @@
     <%= render 'shared/navbar' unless @no_navbar %>
     <%= render 'shared/flashes' %>
 
-    <% if !@no_navbar %>
+    <% if !@no_container %>
       <div class="main-container py-3">
         <%= yield %>
       </div>
-    <% else %>
+    <% elsif @no_container %>
       <%= yield %>
     <% end %>
 
