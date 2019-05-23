@@ -48,7 +48,7 @@ class BikesController < ApplicationController
     new_bike.rating = [1, 2, 3, 4, 5].sample
     new_bike.user = current_user
 
-    new_bike.save
+    new_bike.save!
 
     flash[:just_created] = "Created \"#{new_bike.name}\" Successfully!"
 
@@ -89,6 +89,6 @@ class BikesController < ApplicationController
   end
 
   def params_permit
-    params.require(:bike).permit(:name, :category, :description, :gender, :size, :photo, :price, :address)
+    params.require(:bike).permit(:name, :size, :photo, :price, :address)
   end
 end
