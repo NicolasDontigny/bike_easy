@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -10,26 +10,34 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :current_password,
+                hint: "We need your current password to confirm your changes",
+                required: true,
+                input_html: { autocomplete: "Current-password" } %>
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "Leave it blank if you don't want to change it",
                 required: false,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "New-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+                input_html: { autocomplete: "New-password" } %>
+    <%# if current_user.photo.url.present? %> 
+      <%# <%= image_tag(current_user.photo.url) %>
+      <%# <%= f.label :remove_photo do %> 
+      <%#= f.check_box :remove_photo %> 
+      <%# end %> 
+    <%# end %>
+    <%= f.file_field :photo %> 
+    <%= f.hidden_field :photo_cache %>
   </div>
 
-  <div class="form-actions">
+  <div class="btn btn-primary">
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
+<br>
+<%# <h3>Cancel my account</h3> %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %><br>
 
 <%= link_to "Back", :back %>
