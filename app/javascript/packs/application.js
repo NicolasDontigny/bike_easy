@@ -9,6 +9,7 @@ import { initSweetalertBooking } from '../components/init_sweetalert_booking';
 
 // Import mapbox function and and css
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMapboxBike } from '../components/initMapboxBike';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Map Search feature
@@ -23,7 +24,6 @@ import { displayAlert } from '../plugins/bike_alert';
 // Disable dates already booked
 import { toggleDateInputs } from '../components/booking';
 
-
 deleteButton();
 
 console.log('Hello World from BikeEazy')
@@ -36,9 +36,8 @@ initMapbox();
 
 initAutocomplete();
 
-
 displayAlert();
-
 
 toggleDateInputs();
 
+initMapboxBike();
