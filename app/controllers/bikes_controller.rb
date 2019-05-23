@@ -21,6 +21,12 @@ class BikesController < ApplicationController
   def show
     @booking = Booking.new
     authorize @bike
+    # @bike__markers = {
+    #   lat: @bike.latitude,
+    #   lng: @bike.longitude,
+
+    #   infoWindow: render_to_string(partial: "infowindow", locals: { bike: @bike })
+    # }
   end
 
   def index_owner
@@ -48,7 +54,6 @@ class BikesController < ApplicationController
   end
 
   def edit
-
     @edit = true
     authorize @bike
   end
@@ -59,7 +64,6 @@ class BikesController < ApplicationController
     @bike.update(params_permit)
 
     redirect_to my_bikes_path
-
   end
 
   def destroy
