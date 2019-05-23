@@ -11,6 +11,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     @booking.save!
+    @bike.dates[@booking.id] = [@booking.start_date, @booking.end_date]
+    @bike.save!
   end
 
   def confirm

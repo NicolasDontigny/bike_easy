@@ -1,4 +1,6 @@
 import flatpickr from 'flatpickr';
+require("flatpickr/dist/themes/dark.css");
+
 
 const toggleDateInputs = function() {
   const startDateInput = document.getElementById('booking_start_date');
@@ -9,7 +11,8 @@ const toggleDateInputs = function() {
 
     flatpickr(startDateInput, {
     minDate: 'today',
-    dateFormat: 'd-m-Y',
+    // mode: 'range',
+    dateFormat: "Y-m-d",
     disable: unvailableDates,
     onChange: function(selectedDates, selectedDate) {
       if (selectedDate === '') {
@@ -24,7 +27,8 @@ const toggleDateInputs = function() {
 
     const endDateCalendar =
       flatpickr(endDateInput, {
-        dateFormat: 'd-m-Y',
+        minDate: 'today',
+        dateFormat: "Y-m-d",
         disable: unvailableDates,
     });
   }
