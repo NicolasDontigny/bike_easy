@@ -31,7 +31,9 @@
               <%= cl_image_tag("@owner.avatar") %>
             <% end %>
           <% else %>
-            <%= @owner.first_name %>
+            <%= link_to user_profile_path(@owner.id), class: "owner__link" do %>
+              <%= @owner.first_name %>
+            <% end %>
           <% end %>
         </li>
 
