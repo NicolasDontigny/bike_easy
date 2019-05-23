@@ -8,7 +8,7 @@ class Bike < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  validates :name, :category, :description, :photo, :gender, :size, :price, presence: true
+  validates :name, :category, :description, :photo, :price, presence: true
   validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }
   validates :gender, inclusion: { in: ['M', 'F'] }
   validates :size, inclusion: { in: ['sm', 'md', 'lg'] }

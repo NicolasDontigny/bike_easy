@@ -17,6 +17,8 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 // Input address autocomplete
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
+import { displayAlert } from '../plugins/bike_alert'
+
 deleteButton();
 
 console.log('Hello World from BikeEazy')
@@ -28,4 +30,6 @@ initSweetalertBooking();
 initMapbox();
 
 initAutocomplete();
+
+displayAlert();
 

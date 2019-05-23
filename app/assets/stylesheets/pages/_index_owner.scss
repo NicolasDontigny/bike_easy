@@ -1,6 +1,6 @@
 .card-product {
   overflow: hidden;
-  height: 260px;
+  height: 300px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -8,10 +8,12 @@
   opacity: 1;
   -webkit-transition: opacity 400ms linear;
   transition: opacity 400ms linear;
+  width: 90%;
+  margin: auto;
 }
 
 .card-product img {
-  width: 400px;
+  width: 350px;
   height: 100%;
   object-fit: cover;
 }
@@ -19,7 +21,6 @@
 .card-product h2 {
   font-size: 24px;
   font-weight: bold;
-  margin: 0;
 }
 
 .card-product p {
@@ -27,24 +28,49 @@
   line-height: 1.4;
   margin-bottom: 0;
   margin-top: 8px;
+  &.bike-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+  }
+  &.category {
+    font-size: 18px;
+    font-style: italic;
+  }
   &.price-per-night {
+    margin: 0;
+    font-size: 20px;
+  }
+  &.description {
     font-size: 16px;
+    margin-bottom: 16px;
+  }
+  &.reviews {
+    font-size: 16px;
+    margin: 8px 0;
+    i {
+      color: #3B8489;
+    }
   }
 }
 
 .card-product .card-product-infos {
   padding: 32px;
   height: 100%;
-
+  width: 100%;
 }
 
-.card-product-infos {
-  // width: 100%;
+.card-product-infos .info-text {
+  width: 100%;
 }
 
-.card-buttons a {
-  margin-bottom: 16px;
+.card-buttons {
+  width: 100%;
+  .edit-btn {
+    margin-right: 16px;
+  }
 }
+
 
 .alert.alert-deleted {
   position: fixed;
@@ -55,4 +81,72 @@
   opacity: 1;
   -webkit-transition: opacity 800ms linear;
   transition: opacity 800ms linear;
+}
+
+
+@media (max-width: 1100px) {
+  .card-product {
+    width: 100%
+  }
+}
+
+@media (max-width: 990px) {
+  .card-product {
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    margin: auto;
+    height: auto;
+  }
+
+  .card-product img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .card-product {
+
+    width: 350px;
+    margin: auto;
+    height: auto;
+  }
+
+  .card-product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .info-header {
+    display: block !important;
+  }
+
+  .bike-title {
+    margin-bottom: 8px !important;
+  }
+
+  .description {
+    margin-top: 24px !important;
+    margin-bottom: 32px !important;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .card-product {
+
+    width: 90vw;
+    margin: auto;
+    height: auto;
+  }
+
+  .card-product img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
 }

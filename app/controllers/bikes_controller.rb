@@ -44,11 +44,13 @@ class BikesController < ApplicationController
 
     new_bike.save
 
+    flash[:just_created] = "Created #{new_bike.name} successfully!"
+
+    # redirect_to my_bikes_path, just_created: "Created #{new_bike.name} successfully!"
     redirect_to my_bikes_path
   end
 
   def edit
-
     @edit = true
     authorize @bike
   end
@@ -58,8 +60,9 @@ class BikesController < ApplicationController
 
     @bike.update(params_permit)
 
-    redirect_to my_bikes_path
+    flash[:just_updated] = "Updated #{new_bike.name} successfully!"
 
+    redirect_to my_bikes_path
   end
 
   def destroy
