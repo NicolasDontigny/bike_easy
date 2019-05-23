@@ -40,3 +40,12 @@
     <% end %>
   </div>
 </div>
+
+<h4 class="specs__title map__title">How far is it?</h4>
+<div
+  id="map_bike"
+  style="width: 100%;
+  height: 20rem;"
+  data-markers="<%= @bike__markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
