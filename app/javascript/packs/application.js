@@ -34,3 +34,5 @@ initMapbox();
 initAutocomplete();
 
 toggleDateInputs();
+
+initMapboxBike();
