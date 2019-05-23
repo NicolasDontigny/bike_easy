@@ -4,7 +4,7 @@ const clickOnButton = (event) => {
   const id = event.currentTarget.id;
   const authToken = event.currentTarget.dataset.token
   const httpUrl = `/bikes/${id}`
-  const bikeName = event.currentTarget.parentNode.parentNode.querySelector("h2").innerText;
+  const bikeName = event.currentTarget.parentNode.parentNode.parentNode.querySelector(".bike-title").innerText;
 
   swal({
     title: "Are you sure?",
@@ -21,14 +21,14 @@ const clickOnButton = (event) => {
         data: {authenticity_token: authToken, confirm: "Are you sure?"},
       })
         .done(function( data ) {
-          const deletedCard = document.getElementById(`${id}`).parentNode.parentNode.parentNode;
+          const deletedCard = document.getElementById(`${id}`).parentNode.parentNode.parentNode.parentNode;
           // const nextCard = deletedCard.nextSibling
           deletedCard.style.opacity = 0;
           setTimeout(function() {
             deletedCard.insertAdjacentHTML("beforebegin",
               `<div class="alert alert-success alert-dismissable fade show alert-deleted" role="alert">"${bikeName}" successfully deleted<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button></div>`
+              <span aria-hidden="true">&times;</span>
+              </button></div>`
             )
             deletedCard.remove();
 
