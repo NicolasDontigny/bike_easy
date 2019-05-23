@@ -4,13 +4,13 @@
   <%= form.input :category, collection: ['Mountain', 'BMX', 'Road', 'Fixi', 'Electric', 'City', 'Fatbike'] %>
   <%= form.input :price, :label => "Price per Day" %>
   <%= form.input :description %>
-  <%= form.input :gender, collection: ['M', 'F'] %>
-  <%= form.input :size, collection: ['sm', 'md', 'lg'] %>
+  <%#= form.input :gender, collection: ['M', 'F'] %>
+  <%#= form.input :size, collection: ['sm', 'md', 'lg'] %>
   <%= form.input :photo %>
   <%= form.input :photo_cache, as: :hidden %>
   <% if @new %>
-    <%= form.submit "Create Bike", class: "btn btn-primary" %>
+    <%= form.submit "Create Bike", class: "btn btn-primary", id: "create-btn" %>
   <% elsif @edit %>
-    <%= form.submit "Update Bike", class: "btn btn-primary" %>
+    <%= form.submit "Update Bike", class: "btn btn-primary", id: "update-btn" %>
   <% end %>
 <% end %>
