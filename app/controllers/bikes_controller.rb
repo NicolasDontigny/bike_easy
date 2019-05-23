@@ -6,12 +6,19 @@ class BikesController < ApplicationController
     @no_container = true
     category = params[:category]
     if params[:query].present?
-      sql_query = " \
-        name @@ :query \
-        AND category = :category
-      "
 
-      @bikes = category == "All" ? Bike.all : Bike.where(sql_query, query: "%#{params[:query]}%", category: params[:category])
+      if category == "All"
+        sql_query = " \
+          name @@ :query \
+        "
+        @bikes = Bike.where(sql_query, query: "%#{params[:query]}%")
+      else
+        sql_query = " \
+          name @@ :query \
+          AND category = :category
+        "
+        @bikes = Bike.where(sql_query, query: "%#{params[:query]}%", category: params[:category])
+      end
 
       @message = "We found #{@bikes.count} bikes matching your search"
     else
