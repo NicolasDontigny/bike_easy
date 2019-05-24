@@ -3,7 +3,8 @@
     <%= avatar_for(review.user) %>
     <div class="review-owner-info">
       <p><strong><%= review.user.first_name %></strong></p>
-      <p class="date"><%= review.date %></p>
+      <% months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
+      <p class="date"><%= review.date.strftime("#{months[review.date.month - 1]} %d %Y") %></p>
     </div>
   </div>
   <div class="review-rating">

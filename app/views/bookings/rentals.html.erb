@@ -13,9 +13,9 @@
     <div class="card-bookings-infos d-flex flex-grow-1">
       <div class="flex-grow-1">
         <h2>My Bike <%= booked_bike.name %></h2>
-        <p>Renter :<%= booked_user.first_name%> <%=booked_user.last_name %></p>
-        <p><strong>FROM: </strong> <%= booking.start_date %>
-         <strong>   TO: </strong><%= booking.end_date %></p>
+        <p>Renter :<%= booked_user.first_name %> <%=booked_user.last_name %></p>
+        <p><strong>FROM: </strong> <%= booking.start_date.strftime("#{months[booking.start_date.month - 1]} %d %Y") %></p>
+        <p><strong>   TO: </strong><%= booking.end_date.strftime("#{months[booking.end_date.month - 1]} %d %Y") %></p>
         <% if booking.confirmed == "confirmed" %>
           <p class="bg-success" style="width: 100px;">Status <%= booking.confirmed %></p>
         <% else %>
