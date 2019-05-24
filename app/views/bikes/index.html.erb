@@ -36,19 +36,36 @@
         <% @bikes.each do |bike| %>
             <%= link_to bike_path(bike.id), class:"card_link" do %>
                 <div class="card-bike">
-
+                  <%= cl_image_tag(bike.photo) %>
+                  <div class="card-bike-infos">
+                    <h2><%= bike.name %></h2>
+                    <%# <p><%= bike.description.capitalize %>
                     <%= cl_image_tag(bike.photo) %>
                     <div class="card-bike-infos">
 
-                      <h2><%= bike.name %></h2>
+                      <div class="d-flex justify-content-between">
+                        <h2><%= bike.name %></h2>
+                        <%= avatar_for(bike.user) %>
+                      </div>
+
+
                       <!-- <p><%= bike.description.capitalize %></p> -->
 
 
-                      <div class="price d-flex justify-content-between">
-                        <p>Rating: <%= bike.rating %></p>
+                      <div class="price d-flex justify-content-between mt-2">
+                        <p>
+                          <% bike.rating.times do %>
+                            <i class="fas fa-star star-yellow"></i>
+                          <% end %>
+                          <% (5 - bike.rating).times do %>
+                            <i class="far fa-star star-yellow"></i>
+                          <% end %>
+                          <%= rand(300) %>
+                        </p>
                         <h6>$<%= format('%.2f', bike.price) %></h6>
                       </div>
                     </div>
+                  </div>
                 </div>
             <% end %>
         <% end %>

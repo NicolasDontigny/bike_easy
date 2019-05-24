@@ -11,9 +11,15 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
-      redirect_to bike_path(@bike)
+      respond_to do |format|
+        format.html { redirect_to bike_path(@bike) }
+        format.js # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      render 'bikes/show'
+      respond_to do |format|
+        format.html { render 'bikes/show' }
+        format.js # <-- idem
+      end
     end
   end
 

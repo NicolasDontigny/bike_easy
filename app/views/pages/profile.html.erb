@@ -1,1 +1,57 @@
-<%= @user.first_name %>
+<div class="profile__wrapper">
+
+  <div class="profile__content">
+    <%= avatar_for(@user) %>
+      <!-- <%= cl_image_tag(@user.avatar, class: 'profile__pic') %> -->
+    <p class="specs__title book-me"> Hi! I'm <%= @user.first_name %></p>
+    <p class="spec__info"><%= @user.profile_description %></p>
+    <% if @user == current_user %>
+      <%= link_to "Edit description", edit_profile_description_path(@user), class: "btn btn-primary edit_profile__btn" %>
+    <% end %>
+     <% if @user != current_user %>
+      <p class="contact"><span class="contact__title">
+        <a href="mailto:<%= @user.email %>?Subject=Information about your bikes" target="_blank" class="mailto">Contact <%= @user.first_name %></a>
+      </p>
+    <% end %>
+  </div>
+  <div class="profile__info">
+    <h4 class="specs__title book-me">Check-out my bikes!</h4>
+    <% @user.bikes.each do |bike| %>
+      <div class="card-product my-5">
+        <%= cl_image_tag bike.photo %>
+        <div class="card-product-infos d-flex flex-grow-1 flex-column justify-content-between align-items-start profile__button">
+          <div class="info-text flex-grow-1 d-flex justify-content-between">
+            <div class="flex-grow-1">
+              <div class="info-header d-flex justify-content-between align-items-center">
+                <p class="bike-title"><%= bike.name %></p>
+                <p class="category mt-0">
+                  <%= bike.category %>
+                </p>
+              </div>
+
+              <div class="category-reviews d-flex justify-content-between align-items-center"">
+
+
+                <p class="price-per-night"><%= format('%.2f', bike.price) %>$ per day</p>
+
+                <p class="reviews">
+                  <% bike.rating.times do %>
+                    <i class="fas fa-star star-green"></i>
+                  <% end %>
+                  (<%= rand(100) %> reviews)
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="card-buttons d-flex justify-content-between align-items-center">
+            <div class="profile__btn">
+              <%= link_to "More info", bike_path(bike), class: "btn btn-primary profile__btn" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
