@@ -21,7 +21,7 @@
         <p>Status <%= booking.confirmed %></p>
       </div>
 
-      <div class="card-buttons-booked d-flex flex-column align-items-end">
+      <div class="card-buttons-booked d-flex flex-column">
       <% case booking.confirmed %>
       <% when "pending" %>
         <%= link_to 'Cancel', booking_cancel_path(booking,rentals: false), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
