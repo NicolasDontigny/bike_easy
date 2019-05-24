@@ -25,6 +25,19 @@
             <% counter += 1 %>
           <% end %>
         </li>
+        <li class="spec__info"><strong>Owner:</strong>
+          <% if @owner.avatar?  %>
+            <%= link_to user_profile_path(@owner.id) do %>
+              <%= avatar_for(@owner) %>
+            <% end %>
+          <% else %>
+            <%= link_to user_profile_path(@owner.id), class: "owner__link" do %>
+              <%= @owner.first_name %>
+              <%= avatar_for(@owner) %>
+            <% end %>
+          <% end %>
+        </li>
+
       </ul>
       <%= image_tag 'skidmarks.png', class: "skidmarks" %>
       <%= image_tag 'skidmarks.png', class: "skidmarks2" %>
@@ -34,14 +47,37 @@
     <h4 class="specs__title book-me">Book me!</h4>
     <%= render "shared/booking_form", bike: @bike, booking: @booking %>
     <% if @bike.user != current_user %>
-    <p class="contact">Any questions, comments, request?
-      <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact the owner</a>
+    <p class="contact"><span class="contact__title">Any questions, comments, request?</span>
+      <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact <%= @owner.first_name %></a>
     </p>
     <% end %>
   </div>
 </div>
 
-<h4 class="specs__title map__title">How far is it?</h4>
+<div class="reviews-container mt-5">
+  <h4 class="specs__title">What users say about this bike</h4>
+  <ul class="reviews-list">
+    <% @reviews.each do |review| %>
+      <li class="review-card">
+        <div class="review-header d-flex align-items-center">
+          <%= avatar_for(review.user) %>
+          <div class="review-owner-info">
+            <p><strong><%= review.user.first_name %></strong></p>
+            <p class="date"><%= review.date %></p>
+          </div>
+        </div>
+        <div class="review-content">
+          <%= review.content %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <h4 class="specs__title">Leave a Review</h4>
+  <%= render "reviews/form", bike: @bike, review: Review.new %>
+</div>
+
+<h4 class="specs__title map__title mt-5">How far is it?</h4>
 <div
   id="map_bike"
   style="width: 100%;

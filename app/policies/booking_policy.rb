@@ -11,8 +11,18 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def rentals?
+    true
+  end
+
   def destroy?
-    record.user == user
+    # only the owner of the bike_id can delete the booking
+    # Not the booking user
+    record.user != user
+  end
+
+  def rentals?
+    true
   end
 
   class Scope < Scope

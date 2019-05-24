@@ -20,8 +20,18 @@ abbr[title] {
 }
 
 .simple_form.new_booking {
-  display: flex;
-  align-items: center;
+  @media screen and (min-width: 900px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.new_booking > .form-group {
+    height: 4rem;
+  @media screen and (min-width: 900px) {
+    padding-bottom: 1rem;
+    height: 6rem;
+  }
 }
 
 .custom__input {
@@ -29,19 +39,28 @@ abbr[title] {
 }
 
 #booking__submit {
+  width: 100%;
+  display: inline-block;
   text-align: center;
   padding: 0.75rem;
-  margin-top: 0.75rem;
+  margin: 0.75rem 0;
   border-radius: 5px;
   background-color: $green;
   color: $light-gray;
   opacity: 0.7;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  transition: opacity 0.5s ease-in, box-shadow 0.5s ease-in-out;
-  &:hover {
-    box-shadow: 10px 10px 10px -5px rgba(200,200,200,1);
-    color: $light-gray;
-    text-decoration: none;
-    opacity: 1;
+  @media screen and (min-width: 900px) {
+    width: 30%;
+    margin-top: 0;
+    height: 3rem;
+    display: inline;
+    transition: opacity 0.5s ease-in, box-shadow 0.5s ease-in-out;
+    &:hover {
+      box-shadow: 10px 10px 10px -5px rgba(200,200,200,1);
+      color: $light-gray;
+      text-decoration: none;
+      opacity: 1;
+    }
   }
 }
+
