@@ -22,13 +22,13 @@
       <div class="card-buttons-booked d-flex flex-column align-items-end">
       <% case booking.confirmed %>
       <% when "pending" %>
-        <%= link_to 'Confirm', booking_confirm_path(booking), method: 'patch', class: "btn btn-primary btn-sm my-2" %>
-        <%= link_to 'Cancel', booking_cancel_path(booking), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Confirm', booking_confirm_path(booking), method: 'patch', class: "btn btn-primary btn-md btn-block my-2" %>
+        <%= link_to 'Cancel', booking_cancel_path(booking), method: 'patch',class: "btn btn-danger btn-md btn-block my-2" %>
       <% when "confirmed" %>
-        <%= link_to 'Cancel', booking_cancel_path(booking), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Cancel', booking_cancel_path(booking), method: 'patch',class: "btn btn-danger btn-md btn-block my-2" %>
       <% when "cancelled" %>
         <% # link_to "Delete", bike_path(bike), method: "delete", class: "btn btn-danger delete-btn" %>
-        <%= link_to 'Delete', booking_del_path(booking), method: 'delete',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Delete', booking_del_path(booking), method: 'delete',class: "btn btn-danger btn-md btn-block my-2" %>
       <% end %>
 
       </div>
