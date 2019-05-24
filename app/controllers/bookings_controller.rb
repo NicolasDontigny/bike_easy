@@ -36,7 +36,15 @@ class BookingsController < ApplicationController
   end
 
   def rentals
-    authorize @booking
+    @bikes = Bike.where(user:current_user)
+    @bookings = []
+    @bikes.each do |bike|
+      bike.bookings.each do |booking|
+        @bookings << booking
+      end
+    end
+    
+    authorize Booking
   end
 
   def destroy
