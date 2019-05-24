@@ -34,4 +34,7 @@ Rails.application.routes.draw do
   get 'my-bikes', to: "bikes#index_owner", as: :my_bikes
 
   get 'users/:id/profile', to: "pages#profile", as: :user_profile
+
+  # Reviews paths
+  post 'bikes/:bike_id/reviews', to: 'reviews#create', as: :bike_reviews
 end

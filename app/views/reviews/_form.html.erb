@@ -1,0 +1,6 @@
+<%= simple_form_for [bike, review] do |form| %>
+  <%= form.input :content %>
+  <%= form.input :rating, collection: [1, 2, 3, 4, 5] %>
+  <%= form.submit "Add Review", class: "btn btn-primary" %>
+<% end %>
+

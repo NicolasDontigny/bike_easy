@@ -15,9 +15,15 @@
 </div>
 <div class="container">
 
-    <% if @message %>
+    <% if @message == 'category' %>
       <div class="search-message">
-        We found <span class="bikes-count"><%= @bikes.count %> bikes</span> matching your search
+        <!-- We found <span class="bikes-count"><%= @bikes.count %> bikes</span> matching your search -->
+        We found <span class="bikes-count"><%= pluralize @bikes.count, "bike" %></span> in category <span class="bikes-count">"<%= @category %>"</span>, with a rating of <span class="bikes-count"><%= pluralize @rating, "star" %></span> or more
+      </div>
+    <% elsif @message == 'all' %>
+      <div class="search-message">
+        <!-- We found <span class="bikes-count"><%= @bikes.count %> bikes</span> matching your search -->
+        We found <span class="bikes-count"><%= pluralize @bikes.count, "bike" %></span> in all categories, with a rating of <span class="bikes-count"><%= pluralize @rating, "star" %></span> or more
       </div>
     <% end %>
     <div class="cards">
