@@ -30,7 +30,6 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.confirmed = "confirmed"
     @booking.save
-
     redirect_to rentals_path
   end
 

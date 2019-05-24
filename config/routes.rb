@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get 'rentals', to: 'bookings#rentals', as: :rentals
 
+
   post 'bikes/:id/bookings', to: 'bookings#create', as: :bike_bookings
 
   patch 'bookings/:id/confirm', to: 'bookings#confirm', as: :booking_confirm

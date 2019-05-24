@@ -12,11 +12,15 @@
    <%= cl_image_tag booked_bike.photo %>
     <div class="card-bookings-infos d-flex flex-grow-1">
       <div class="flex-grow-1">
-        <p><%= booked_user.first_name%> <%=booked_user.last_name %></p>
-        <p>Bike <%= booked_bike.name %></p>
+        <h2>My Bike <%= booked_bike.name %></h2>
+        <p>Renter :<%= booked_user.first_name%> <%=booked_user.last_name %></p>
         <p><strong>FROM: </strong> <%= booking.start_date %>
          <strong>   TO: </strong><%= booking.end_date %></p>
-        <p>Status <%= booking.confirmed %></p>
+        <% if booking.confirmed == "confirmed" %>
+          <p class="bg-success" style="width: 100px;">Status <%= booking.confirmed %></p>
+        <% else %>
+          <p>Status <%= booking.confirmed %></p>
+        <% end %>
       </div>
 
       <div class="card-buttons-booked d-flex flex-column align-items-end">
