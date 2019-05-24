@@ -18,7 +18,7 @@
 <!--         <li class="spec__info"><strong>Description:</strong> <%= @bike.description %></li>
         <li class="spec__info"><strong>Gender:</strong> <%=@bike.gender %></li>
         <li class="spec__info"><strong>Size:</strong> <%= @bike.size %></li> -->
-        <li class="spec__info"><strong>Price:</strong> $<%= @bike.price %></li>
+        <li class="spec__info"><strong>Price:</strong> $<%= format('%.2f', @bike.price) %></li>
         <% counter = 0 %>
         <!-- <li class="spec__info"><strong>Rating:</strong> <% 5.times do %>
           <i class="fa <%= @bike.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
