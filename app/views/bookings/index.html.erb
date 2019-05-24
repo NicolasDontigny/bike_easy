@@ -14,19 +14,21 @@
     <div class="card-bookings-infos d-flex flex-grow-1">
       <div class="flex-grow-1">
         <h2>Bike <%= booked_bike.name %></h2>
-        <p>Owned by: <%= owner_id.first_name%> <%=owner_id.last_name %></p>
-        <% months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
-        <p><strong>FROM: </strong> <%= booking.start_date.strftime("#{months[booking.start_date.month - 1]} %d %Y") %></p>
-        <p><strong>   TO: </strong><%= booking.end_date.strftime("#{months[booking.end_date.month - 1]} %d %Y") %></p>
-        <p>Status <%= booking.confirmed %></p>
+
+        <h5>Owned by: <%= owner_id.first_name%> <%=booked_user.last_name %></h5>
+        <h6>FROM: <%= booking.start_date.strftime("%A, %b %d %Y") %></h6>
+        <h6>TO  : <%= booking.end_date.strftime("%A, %b %d %Y") %></h6>
+        <p><br></p>
+        <h6><%= booking.confirmed.capitalize %></h6>
+
       </div>
 
       <div class="card-buttons-booked d-flex flex-column">
       <% case booking.confirmed %>
       <% when "pending" %>
-        <%= link_to 'Cancel', booking_cancel_path(booking,rentals: false), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Cancel', booking_cancel_path(booking,rentals: false), method: 'patch',class: "btn btn-danger btn-md btn-block my-2" %>
       <% when "confirmed" %>
-        <%= link_to 'Cancel', booking_cancel_path(booking,rentals: false), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Cancel', booking_cancel_path(booking,rentals: false), method: 'patch',class: "btn btn-danger btn-md btn-block my-2" %>
       <% end %>
 
       </div>

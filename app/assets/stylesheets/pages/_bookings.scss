@@ -10,7 +10,13 @@
   transition: opacity 400ms linear;
   width: 90%;
   margin: auto;
+
+  &.bookings-page {
+    height: 240px;
+  }
+
   border-radius: 4px;
+
 }
 
 .card-bookings img {

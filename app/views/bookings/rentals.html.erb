@@ -8,31 +8,36 @@
 <% @bookings.each do |booking| %>
   <% booked_user = User.find(booking.user_id) %>
   <% booked_bike = Bike.find(booking.bike_id) %>
-  <div class="card-bookings my-3">
+  <div class="card-bookings my-3 bookings-page">
    <%= cl_image_tag booked_bike.photo %>
     <div class="card-bookings-infos d-flex flex-grow-1">
       <div class="flex-grow-1">
         <h2>My Bike <%= booked_bike.name %></h2>
-        <p>Renter :<%= booked_user.first_name %> <%=booked_user.last_name %></p>
-        <p><strong>FROM: </strong> <%= booking.start_date.strftime("#{months[booking.start_date.month - 1]} %d %Y") %></p>
-        <p><strong>   TO: </strong><%= booking.end_date.strftime("#{months[booking.end_date.month - 1]} %d %Y") %></p>
+
+        <h5>Renter :<%= booked_user.first_name%> <%=booked_user.last_name %></h5>
+        <h6>FROM: <%= booking.start_date.strftime("%A, %b %d %Y") %></h6>
+        <h6>TO  : <%= booking.end_date.strftime("%A, %b %d %Y") %></h6>
+        <p><br></p>
+
+
         <% if booking.confirmed == "confirmed" %>
-          <p class="bg-success" style="width: 100px;">Status <%= booking.confirmed %></p>
+          <!-- <h6 class="bg-success" style="width: 100px;"><%= booking.confirmed.capitalize %></h6> -->
+          <div class="btn btn-success" style="">Confirmed</div>
         <% else %>
-          <p>Status <%= booking.confirmed %></p>
+          <div class="btn"><%= booking.confirmed.capitalize %></div>
         <% end %>
       </div>
 
       <div class="card-buttons-booked d-flex flex-column align-items-end">
       <% case booking.confirmed %>
       <% when "pending" %>
-        <%= link_to 'Confirm', booking_confirm_path(booking, rentals: true), method: 'patch', class: "btn btn-primary btn-sm my-2" %>
-        <%= link_to 'Cancel', booking_cancel_path(booking, rentals: true), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Confirm', booking_confirm_path(booking, rentals: true), method: 'patch', class: "btn btn-primary btn-md btn-block my-2" %>
+        <%= link_to 'Cancel', booking_cancel_path(booking, rentals: true), method: 'patch',class: "btn btn-danger btn-md btn-block my-2" %>
       <% when "confirmed" %>
-        <%= link_to 'Cancel', booking_cancel_path(booking, rentals: true), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Cancel', booking_cancel_path(booking, rentals: true), method: 'patch',class: "btn btn-danger btn-md btn-block my-2" %>
       <% when "cancelled" %>
         <% # link_to "Delete", bike_path(bike), method: "delete", class: "btn btn-danger delete-btn" %>
-        <%= link_to 'Delete', booking_del_path(booking, rentals: true), method: 'delete',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Delete', booking_del_path(booking, rentals: true), method: 'delete',class: "btn btn-danger btn-md btn-block my-2" %>
       <% end %>
 
       </div>
