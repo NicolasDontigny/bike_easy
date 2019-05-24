@@ -1,0 +1,20 @@
+<li class="review-card">
+  <div class="review-header d-flex align-items-center">
+    <%= avatar_for(review.user) %>
+    <div class="review-owner-info">
+      <p><strong><%= review.user.first_name %></strong></p>
+      <p class="date"><%= review.date %></p>
+    </div>
+  </div>
+  <div class="review-rating">
+    <% review.rating.times do %>
+      <i class="fas fa-star star-green"></i>
+    <% end %>
+    <% (5 - review.rating).times do %>
+      <i class="far fa-star star-green"></i>
+    <% end %>
+  </div>
+  <div class="review-content">
+    <%= review.content %>
+  </div>
+</li>

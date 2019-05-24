@@ -20,9 +20,18 @@
         <li class="spec__info"><strong>Size:</strong> <%= @bike.size %></li> -->
         <li class="spec__info"><strong>Price:</strong> $<%= @bike.price %></li>
         <% counter = 0 %>
-        <li class="spec__info"><strong>Rating:</strong> <% 5.times do %>
+        <!-- <li class="spec__info"><strong>Rating:</strong> <% 5.times do %>
           <i class="fa <%= @bike.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
             <% counter += 1 %>
+          <% end %>
+        </li> -->
+        <li class="spec__info">
+          <strong>Rating:</strong>
+          <% @bike.rating.times do %>
+            <i class="fas fa-star star-yellow"></i>
+          <% end %>
+          <% (5 - @bike.rating).times do %>
+            <i class="far fa-star star-yellow"></i>
           <% end %>
         </li>
         <li class="spec__info"><strong>Owner:</strong>
@@ -55,23 +64,19 @@
 </div>
 
 <div class="reviews-container mt-5">
-  <h4 class="specs__title">What users say about this bike</h4>
-  <ul class="reviews-list">
-    <% @reviews.each do |review| %>
-      <li class="review-card">
-        <div class="review-header d-flex align-items-center">
-          <%= avatar_for(review.user) %>
-          <div class="review-owner-info">
-            <p><strong><%= review.user.first_name %></strong></p>
-            <p class="date"><%= review.date %></p>
-          </div>
-        </div>
-        <div class="review-content">
-          <%= review.content %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+  <% if @reviews.empty? %>
+      <ul id="reviews-list">
+        <%= render "reviews/no_reviews" %>
+      </ul>
+  <% else %>
+    <h4 class="specs__title">What users say about this bike</h4>
+    <ul id="reviews-list">
+      <% @reviews.each do |review| %>
+        <%= render "reviews/show_opacity1", review: review %>
+      <% end %>
+
+    </ul>
+  <% end %>
 
   <h4 class="specs__title">Leave a Review</h4>
   <%= render "reviews/form", bike: @bike, review: Review.new %>
