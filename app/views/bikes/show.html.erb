@@ -35,14 +35,15 @@
           <% end %>
         </li>
         <li class="spec__info"><strong>Owner:</strong>
-          <% if @owner.avatar?  %>
-            <%= link_to user_profile_path(@owner.id) do %>
-              <%= avatar_for(@owner) %>
+          <% if @bike.user.avatar?  %>
+            <%= link_to user_profile_path(@bike.user.id) do %>
+              <%= @bike.user.first_name %>
+              <%= avatar_for(@bike.user) %>
             <% end %>
           <% else %>
-            <%= link_to user_profile_path(@owner.id), class: "owner__link" do %>
-              <%= @owner.first_name %>
-              <%= avatar_for(@owner) %>
+            <%= link_to user_profile_path(@bike.user.id), class: "owner__link" do %>
+              <%= @bike.user.first_name %>
+              <%= avatar_for(@bike.user) %>
             <% end %>
           <% end %>
         </li>
@@ -57,7 +58,7 @@
     <%= render "shared/booking_form", bike: @bike, booking: @booking %>
     <% if @bike.user != current_user %>
     <p class="contact"><span class="contact__title">Any questions, comments, request?</span>
-      <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact <%= @owner.first_name %></a>
+      <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact <%= @bike.user.first_name %></a>
     </p>
     <% end %>
   </div>
