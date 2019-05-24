@@ -46,7 +46,7 @@
     <h4 class="specs__title book-me">Book me!</h4>
     <%= render "shared/booking_form", bike: @bike, booking: @booking %>
     <% if @bike.user != current_user %>
-    <p class="contact">Any questions, comments, request?
+    <p class="contact"><span class="contact__title">Any questions, comments, request?</span>
       <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact <%= @owner.first_name %></a>
     </p>
     <% end %>
