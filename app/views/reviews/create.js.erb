@@ -1,0 +1,25 @@
+console.log("HELLO")
+
+var changeOpacity = (element) => {
+  element.style.opacity = 1;
+}
+
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('new_review');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function addReview(reviewHTML) {
+  const reviews = document.getElementById('reviews-list');
+  reviews.insertAdjacentHTML('beforeend', reviewHTML);
+  new_review = reviews.querySelector('li:last-child');
+
+  setTimeout(() => { new_review.style.opacity = 1 }, 100);
+}
+
+<% if @review.errors.any? %>
+  refreshForm('<%= j render "reviews/form", bike: @bike, review: @review %>');
+<% else %>
+  addReview('<%= j render "reviews/show", review: @review %>');
+  refreshForm('<%= j render "reviews/form", bike: @bike, review: Review.new %>');
+<% end %>

@@ -2,30 +2,30 @@
 <p>Find me in app/views/bikes/:index.html.erb</p> %>
 
 <div class="semi-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1544361591-36e31038df92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);">
-  <div class="banner-info">
-    <h2>Rent a bike whenever, wherever!</h2>
-    <p>Browse through numerous types of bikes specific to your needs.</p>
-    <%= form_tag bikes_path, method: :get do %>
-      <div class="form-group search-form-group">
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a bike"
-        %>
+  <div class="banner-info d-flex justify-content-between h-100">
+    <div class="d-flex flex-column justify-content-between h-100">
+      <div>
+        <h2>Rent a bike whenever, wherever!</h2>
+        <p>Browse through numerous types of bikes specific to your needs.</p>
       </div>
-
-      <div class="form-group search-form-group">
-        <%= label_tag 'categories', 'Category' %>
-        <% categories = ['All', 'Mountain', 'BMX', 'Road', 'Fixi', 'Electric', 'City', 'Fatbike'] %>
-        <%= select_tag :categories,
-            options_for_select(categories),
-            class: "form-control" %>
-      </div>
-    <% end %>
+      <%= link_to "Browse on Map", bikes_map_path, class: 'btn btn-lg btn-light-blue w-50 text-white' %>
+    </div>
+    <%= render "search_form" %>
   </div>
 </div>
 <div class="container">
 
+    <% if @message == 'category' %>
+      <div class="search-message">
+        <!-- We found <span class="bikes-count"><%= @bikes.count %> bikes</span> matching your search -->
+        We found <span class="bikes-count"><%= pluralize @bikes.count, "bike" %></span> in category <span class="bikes-count">"<%= @category %>"</span>, with a rating of <span class="bikes-count"><%= pluralize @rating, "star" %></span> or more
+      </div>
+    <% elsif @message == 'all' %>
+      <div class="search-message">
+        <!-- We found <span class="bikes-count"><%= @bikes.count %> bikes</span> matching your search -->
+        We found <span class="bikes-count"><%= pluralize @bikes.count, "bike" %></span> in all categories, with a rating of <span class="bikes-count"><%= pluralize @rating, "star" %></span> or more
+      </div>
+    <% end %>
     <div class="cards">
         <% if user_signed_in? %>
             <%# Do not show user's bikes %>
@@ -40,23 +40,30 @@
                   <div class="card-bike-infos">
                     <h2><%= bike.name %></h2>
                     <%# <p><%= bike.description.capitalize %>
+                    <%= cl_image_tag(bike.photo) %>
+                    <div class="card-bike-infos">
 
-                    <div class="price d-flex justify-content-between">
-                      <%# <p class="spec__info card-stars"> %>
-                      <%# <% counter = 0 %>
-                      <%# rounded_rating = bike.rating.round %>
-                      <%# half_star = bike.rating % 1 > 0 %>
-                      <%#5.times do %>
-                        <%# if half_star && counter == rounded_rating %>
-                          <%# <i class="fas fa-star-half-alt"></i> %>
-                        <%# else %>
-                          <%# <i class="fa-star <%= bike.rating > counter ? 'fa' : 'far' %>
-                        <%# end %>                          
-                      <%# counter += 1 %>
-                      <%# end %>
-                      </p>
-                      <%# <p>Rating: <%= bike.rating %>
-                      <h6>$<%= format('%.2f', bike.price) %></h6>
+                      <div class="d-flex justify-content-between">
+                        <h2><%= bike.name %></h2>
+                        <%= avatar_for(bike.user) %>
+                      </div>
+
+
+                      <!-- <p><%= bike.description.capitalize %></p> -->
+
+
+                      <div class="price d-flex justify-content-between mt-2">
+                        <p>
+                          <% bike.rating.times do %>
+                            <i class="fas fa-star star-yellow"></i>
+                          <% end %>
+                          <% (5 - bike.rating).times do %>
+                            <i class="far fa-star star-yellow"></i>
+                          <% end %>
+                          <%= rand(300) %>
+                        </p>
+                        <h6>$<%= format('%.2f', bike.price) %></h6>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -65,4 +72,4 @@
     </div>
 </div>
 
-<%= link_to "MAP", bikes_map_path, id: 'map-button', class: 'btn btn-lg btn-maps' %>
+<%#= link_to "MAP", bikes_map_path, id: 'map-button', class: 'btn btn-lg btn-maps' %>

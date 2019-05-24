@@ -8,27 +8,25 @@
 <% @bookings.each do |booking| %>
   <% booked_user = User.find(booking.user_id) %>
   <% booked_bike = Bike.find(booking.bike_id) %>
+  <% owner_id = User.find(booked_bike.user_id) %>
   <div class="card-bookings my-3">
    <%= cl_image_tag booked_bike.photo %>
     <div class="card-bookings-infos d-flex flex-grow-1">
       <div class="flex-grow-1">
-        <h4>Owned by: <%= booked_user.first_name%> <%=booked_user.last_name %></h4>
-        <h2><%= booked_bike.name %></h2>
-        <h6><strong>FROM: </strong> <%= booking.start_date.strftime("%A, %b %d %Y") %>
-         <strong>   TO: </strong><%= booking.end_date.strftime("%A, %b %d %Y") %></h6><br>
-        <h6>Status: <%= booking.confirmed.capitalize %></h6>
+        <h2>Bike <%= booked_bike.name %></h2>
+        <p>Owned by: <%= owner_id.first_name%> <%=owner_id.last_name %></p>
+        <% months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
+        <p><strong>FROM: </strong> <%= booking.start_date.strftime("#{months[booking.start_date.month - 1]} %d %Y") %></p>
+        <p><strong>   TO: </strong><%= booking.end_date.strftime("#{months[booking.end_date.month - 1]} %d %Y") %></p>
+        <p>Status <%= booking.confirmed %></p>
       </div>
 
       <div class="card-buttons-booked d-flex flex-column">
       <% case booking.confirmed %>
       <% when "pending" %>
-        <%= link_to 'Confirm', booking_confirm_path(booking), method: 'patch', class: "btn btn-primary btn-sm my-2" %>
-        <%= link_to 'Cancel', booking_cancel_path(booking), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Cancel', booking_cancel_path(booking,rentals: false), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
       <% when "confirmed" %>
-        <%= link_to 'Cancel', booking_cancel_path(booking), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
-      <% when "cancelled" %>
-        <% # link_to "Delete", bike_path(bike), method: "delete", class: "btn btn-danger delete-btn" %>
-        <%= link_to 'Delete', booking_del_path(booking), method: 'delete',class: "btn btn-danger btn-sm my-2" %>
+        <%= link_to 'Cancel', booking_cancel_path(booking,rentals: false), method: 'patch',class: "btn btn-danger btn-sm my-2" %>
       <% end %>
 
       </div>

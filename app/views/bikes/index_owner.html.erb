@@ -33,6 +33,9 @@
               <% bike.rating.times do %>
                 <i class="fas fa-star star-green"></i>
               <% end %>
+              <% (5 - bike.rating).times do %>
+                <i class="far fa-star star-green"></i>
+              <% end %>
               (<%= rand(100) %> reviews)
             </p>
           </div>

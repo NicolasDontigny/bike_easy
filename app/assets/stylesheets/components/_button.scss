@@ -17,3 +17,18 @@
     color: black;
   }
 }
+
+.btn-light-blue {
+  padding: 16px;
+  border-radius: 5px;
+  background-color: #49A2B8;
+  border-color: #49A2B8;
+  color: white;
+  font-size: 1.4rem;
+  &:hover, :active {
+    background-color: #3B8496;
+    border-color: #3B8496;
+    color: white;
+  }
+
+}
