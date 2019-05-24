@@ -44,8 +44,16 @@
                       <!-- <p><%= bike.description.capitalize %></p> -->
 
 
-                      <div class="price d-flex justify-content-between">
-                        <p>Rating: <%= bike.rating %></p>
+                      <div class="price d-flex justify-content-between mt-2">
+                        <p>
+                          <% bike.rating.times do %>
+                            <i class="fas fa-star star-yellow"></i>
+                          <% end %>
+                          <% (5 - bike.rating).times do %>
+                            <i class="far fa-star star-yellow"></i>
+                          <% end %>
+                          <%= rand(300) %>
+                        </p>
                         <h6>$<%= format('%.2f', bike.price) %></h6>
                       </div>
                     </div>

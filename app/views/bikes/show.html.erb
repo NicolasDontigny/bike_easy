@@ -20,19 +20,29 @@
         <li class="spec__info"><strong>Size:</strong> <%= @bike.size %></li> -->
         <li class="spec__info"><strong>Price:</strong> $<%= @bike.price %></li>
         <% counter = 0 %>
-        <li class="spec__info"><strong>Rating:</strong> <% 5.times do %>
+        <!-- <li class="spec__info"><strong>Rating:</strong> <% 5.times do %>
           <i class="fa <%= @bike.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
             <% counter += 1 %>
+          <% end %>
+        </li> -->
+        <li class="spec__info">
+          <strong>Rating:</strong>
+          <% @bike.rating.times do %>
+            <i class="fas fa-star star-yellow"></i>
+          <% end %>
+          <% (5 - @bike.rating).times do %>
+            <i class="far fa-star star-yellow"></i>
           <% end %>
         </li>
         <li class="spec__info"><strong>Owner:</strong>
           <% if @owner.avatar?  %>
             <%= link_to user_profile_path(@owner.id) do %>
-              <%= cl_image_tag("@owner.avatar") %>
+              <%= avatar_for(@owner) %>
             <% end %>
           <% else %>
             <%= link_to user_profile_path(@owner.id), class: "owner__link" do %>
               <%= @owner.first_name %>
+              <%= avatar_for(@owner) %>
             <% end %>
           <% end %>
         </li>
@@ -53,7 +63,26 @@
   </div>
 </div>
 
-<h4 class="specs__title map__title">How far is it?</h4>
+<div class="reviews-container mt-5">
+  <% if @reviews.empty? %>
+      <ul id="reviews-list">
+        <%= render "reviews/no_reviews" %>
+      </ul>
+  <% else %>
+    <h4 class="specs__title">What users say about this bike</h4>
+    <ul id="reviews-list">
+      <% @reviews.each do |review| %>
+        <%= render "reviews/show_opacity1", review: review %>
+      <% end %>
+
+    </ul>
+  <% end %>
+
+  <h4 class="specs__title">Leave a Review</h4>
+  <%= render "reviews/form", bike: @bike, review: Review.new %>
+</div>
+
+<h4 class="specs__title map__title mt-5">How far is it?</h4>
 <div
   id="map_bike"
   style="width: 100%;

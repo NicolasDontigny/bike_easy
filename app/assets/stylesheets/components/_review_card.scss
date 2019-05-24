@@ -1,0 +1,40 @@
+.review-card {
+  padding: 24px 0;
+  border-bottom: 1px solid lightgrey;
+  -webkit-transition: opacity 2000ms linear;
+  transition: opacity 1000ms linear;
+}
+
+.review-header {
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  .review-owner-info {
+    margin-left: 16px;
+    p {
+      margin: 0;
+      &.date {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.review-content {
+  margin-top: 20px;
+  font-size: 16px;
+  &.no-reviews {
+    font-size: 20px;
+  }
+}
+
+#reviews-list {
+  list-style: none;
+  padding: 0;
+}
+
+.review-rating {
+  margin-top: 16px;
+}

@@ -3,13 +3,17 @@ require 'faker'
 Bike.destroy_all
 User.destroy_all
 
-guillaume = User.create(
+guillaume = User.new(
   first_name: 'Guillaume',
   last_name: 'Grassiant',
   postal_code: 'HG5',
   email: 'guillaume@gmail.com',
   password: '123456'
 )
+
+puts guillaume
+puts guillaume.valid?
+guillaume.save
 
 michael = User.create(
   first_name: 'Michael',

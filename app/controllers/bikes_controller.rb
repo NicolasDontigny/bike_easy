@@ -53,6 +53,7 @@ class BikesController < ApplicationController
       infoWindow: render_to_string(partial: "infowindow", locals: { bike: @bike })
     }
     @owner = User.find(@bike.user_id)
+    @reviews = @bike.reviews
   end
 
   def index_owner
