@@ -33,4 +33,8 @@ Rails.application.routes.draw do
   get 'my-bikes', to: "bikes#index_owner", as: :my_bikes
 
   get 'users/:id/profile', to: "pages#profile", as: :user_profile
+
+  get 'users/:id/profile/edit_profile_description', to: "pages#edit_profile_description", as: :edit_profile_description
+
+  patch 'users/:id/profile', to: 'pages#update_profile'
 end

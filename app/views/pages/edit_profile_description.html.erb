@@ -1,0 +1,4 @@
+<%= simple_form_for @user, url: user_profile_path(@user), method: 'patch'  do |form| %>
+  <%= form.input :profile_description %>
+  <%= form.submit "Update description", class: "btn btn-primary", id: "update-btn" %>
+<% end %>
