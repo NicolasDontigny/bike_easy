@@ -12,14 +12,14 @@
    <%= cl_image_tag booked_bike.photo %>
     <div class="card-bookings-infos d-flex flex-grow-1">
       <div class="flex-grow-1">
-        <p><%= booked_user.first_name%> <%=booked_user.last_name %></p>
-        <p>Bike <%= booked_bike.name %></p>
-        <p><strong>FROM: </strong> <%= booking.start_date %>
-         <strong>   TO: </strong><%= booking.end_date %></p>
-        <p>Status <%= booking.confirmed %></p>
+        <h4>Owned by: <%= booked_user.first_name%> <%=booked_user.last_name %></h4>
+        <h2><%= booked_bike.name %></h2>
+        <h6><strong>FROM: </strong> <%= booking.start_date.strftime("%A, %b %d %Y") %>
+         <strong>   TO: </strong><%= booking.end_date.strftime("%A, %b %d %Y") %></h6><br>
+        <h6>Status: <%= booking.confirmed.capitalize %></h6>
       </div>
 
-      <div class="card-buttons-booked d-flex flex-column align-items-end">
+      <div class="card-buttons-booked d-flex flex-column">
       <% case booking.confirmed %>
       <% when "pending" %>
         <%= link_to 'Confirm', booking_confirm_path(booking), method: 'patch', class: "btn btn-primary btn-sm my-2" %>

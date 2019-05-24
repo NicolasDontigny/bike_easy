@@ -39,21 +39,21 @@
                   <%= cl_image_tag(bike.photo) %>
                   <div class="card-bike-infos">
                     <h2><%= bike.name %></h2>
-                    <p><%= bike.description.capitalize %></p>
+                    <%# <p><%= bike.description.capitalize %>
 
                     <div class="price d-flex justify-content-between">
-                      <p class="spec__info card-stars">
-                      <% counter = 0 %>
-                      <% rounded_rating = bike.rating.round %>
-                      <% half_star = bike.rating % 1 > 0 %>
-                      <% 5.times do %>
-                        <% if half_star && counter == rounded_rating %>
-                          <i class="fas fa-star-half-alt"></i>
-                        <% else %>
-                          <i class="fa-star <%= bike.rating > counter ? 'fa' : 'far' %>"></i>
-                        <% end %>                          
-                      <% counter += 1 %>
-                      <% end %>
+                      <%# <p class="spec__info card-stars"> %>
+                      <%# <% counter = 0 %>
+                      <%# rounded_rating = bike.rating.round %>
+                      <%# half_star = bike.rating % 1 > 0 %>
+                      <%#5.times do %>
+                        <%# if half_star && counter == rounded_rating %>
+                          <%# <i class="fas fa-star-half-alt"></i> %>
+                        <%# else %>
+                          <%# <i class="fa-star <%= bike.rating > counter ? 'fa' : 'far' %>
+                        <%# end %>                          
+                      <%# counter += 1 %>
+                      <%# end %>
                       </p>
                       <%# <p>Rating: <%= bike.rating %>
                       <h6>$<%= format('%.2f', bike.price) %></h6>
