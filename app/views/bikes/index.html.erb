@@ -40,7 +40,12 @@
                     <%= cl_image_tag(bike.photo) %>
                     <div class="card-bike-infos">
 
-                      <h2><%= bike.name %></h2>
+                      <div class="d-flex justify-content-between">
+                        <h2><%= bike.name %></h2>
+                        <%= avatar_for(bike.user) %>
+                      </div>
+
+
                       <!-- <p><%= bike.description.capitalize %></p> -->
 
 
