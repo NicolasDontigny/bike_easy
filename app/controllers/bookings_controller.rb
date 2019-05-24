@@ -52,7 +52,6 @@ class BookingsController < ApplicationController
       end
     end
     authorize Booking
-
   end
 
   def destroy
