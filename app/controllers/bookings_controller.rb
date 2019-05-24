@@ -7,12 +7,23 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(review_params)
     @bike = Bike.find(params[:bike_id])
+    @owner = User.find(@bike.user_id) # need this to pass it to the view when re-rendering render: 'bikes/show' below
     @booking.bike = @bike
     @booking.user = current_user
     authorize @booking
-    @booking.save!
-    @bike.dates[@booking.id] = [@booking.start_date, @booking.end_date]
-    @bike.save!
+    if @booking.save
+      @bike.dates[@booking.id] = [@booking.start_date, @booking.end_date]
+      @bike.save
+      redirect_to bike_path(@bike)
+    else
+      @bike__markers = {
+        lat: @bike.latitude,
+        lng: @bike.longitude,
+
+        infoWindow: render_to_string(partial: "bikes/infowindow", locals: { bike: @bike })
+      }
+      render 'bikes/show'
+    end
   end
 
   def confirm
@@ -20,9 +31,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.confirmed = "confirmed"
     @booking.save
-
-
-    redirect_to bookings_path
+    redirect_to rentals_path
   end
 
   def cancel
@@ -30,7 +39,6 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.confirmed = "cancelled"
     @booking.save
-
 
     redirect_to bookings_path
   end
@@ -43,7 +51,6 @@ class BookingsController < ApplicationController
         @bookings << booking
       end
     end
-    
     authorize Booking
   end
 

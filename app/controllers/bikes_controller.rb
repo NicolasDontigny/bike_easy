@@ -4,7 +4,31 @@ class BikesController < ApplicationController
 
   def index
     @no_container = true
-    @bikes = Bike.all
+    if params[:category].present?
+      @category = params[:category]
+      @rating = params[:rating][0].to_i
+      user_id = current_user ? current_user.id : 0
+
+      if @category == "All"
+        @bikes = Bike.where("rating >= :rating AND user_id <> :user_id", rating: @rating, user_id: user_id)
+        @message = 'all'
+      else
+        sql_query = " \
+          category = :category \
+          AND rating >= :rating \
+          AND user_id <> :user_id
+        "
+        @bikes = Bike.where(sql_query, category: @category, rating: @rating, user_id: user_id)
+
+        @message = 'category'
+      end
+
+      # @message = "We found #{pluralize @bikes.count, "bike"} in \"#{category}\", with a rating of #{params[:rating]} and above"
+    else
+      @bikes = Bike.all
+
+      @message = false
+    end
   end
 
   def index_map
@@ -28,6 +52,7 @@ class BikesController < ApplicationController
 
       infoWindow: render_to_string(partial: "infowindow", locals: { bike: @bike })
     }
+    @owner = User.find(@bike.user_id)
   end
 
   def index_owner

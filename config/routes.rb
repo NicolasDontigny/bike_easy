@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get 'rentals', to: 'bookings#rentals', as: :rentals
 
+
   post 'bikes/:id/bookings', to: 'bookings#create', as: :bike_bookings
 
   patch 'bookings/:id/confirm', to: 'bookings#confirm', as: :booking_confirm
@@ -30,4 +31,6 @@ Rails.application.routes.draw do
   delete 'bookings/:id', to: 'bookings#destroy', as: :booking_del
 
   get 'my-bikes', to: "bikes#index_owner", as: :my_bikes
+
+  get 'users/:id/profile', to: "pages#profile", as: :user_profile
 end

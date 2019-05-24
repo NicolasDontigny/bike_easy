@@ -42,8 +42,20 @@
   position: relative;
 }
 
+.specs__title {
+  font-size: 1rem;
+  color: #CB6B16;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  font-size: 1.5rem;
+}
+
 .specs__title.book-me {
   padding-left: 0;
+  margin-top: 0.5rem;
+  @media screen and (min-width: 900px) {
+   margin-top: 0;
+  }
 }
 
 .specs__title.map__title {
@@ -64,40 +76,42 @@
 }
 
 .bike__info--container {
-  display: flex;
-  justify-content: space-between;
   margin-top: 1rem;
-}
-
-.specs__title {
-  color: #CB6B16;
-  padding-top: 0.5rem;
-  padding-left: 0.5rem;
+  @media screen and (min-width: 900px) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .specs__wrapper {
   display: flex;
   flex-direction: column;
-  width: 45vw;
+  @media screen and (min-width: 900px) {
+    width: 45vw;
+  }
 }
 
 .specssheet {
   background-image: url('https://static.brusheezy.com/system/resources/previews/000/018/482/non_2x/notebook-paper-texture-photoshop-textures.jpg');
   background-size: cover;
   background-position: center;
-  height: 100%;
-  width: 85%;
+  height: 13rem;
   border-radius: 5px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
-  margin-right: 2rem;
   position:relative;
+  @media screen and (min-width: 900px) {
+    margin-right: 2rem;
+    width: 85%;
+    height: 100%;
+  }
 }
 
 .specs {
+  list-style: none;
+  padding-left: 0.5rem;
   padding-top: 0.5rem;
   padding-left: 1rem;
   margin-bottom: 2.2rem;
-  list-style: none;
 }
 
 .spec__info {
@@ -121,8 +135,9 @@
 }
 
 .skidmarks2 {
-  opacity: 0;
+  display: none;
   @media screen and (min-width: 900px) {
+    display: inline;
     opacity: 0.5;
     position: absolute;
     right: -3rem;
@@ -134,11 +149,36 @@
 
 .contact {
   color: #CB6B16;
+  margin-top: 0.5rem;
+  @media screen and (min-width: 900px) {
   margin-top: 2rem;
+  }
+}
+
+.contact__title {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+
+  @media screen and (min-width: 900px) {
+    display: inline;
+    margin-bottom: 0;
+  }
+}
+
+.owner__link {
+  color: #CB6B16;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.5s ease-in;
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #CB6B16;
+  };
 }
 
 .mailto {
-  margin-left: 1rem;
+  display: inline-block;
   text-align: center;
   width: 12rem;
   padding: 0.5rem;
@@ -148,18 +188,31 @@
   opacity: 0.7;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   transition: opacity 0.5s ease-in, box-shadow 0.5s ease-in-out;
-  &:hover {
-    box-shadow: 10px 10px 10px -5px rgba(200,200,200,1);
-    color: $light-gray;
-    text-decoration: none;
-    opacity: 1;
+  margin-top: 0.5rem;
+  @media screen and (min-width: 900px) {
+  display: inline;
+  margin-left: 1rem;
+  margin-top: 2rem;
+    &:hover {
+      box-shadow: 10px 10px 10px -5px rgba(200,200,200,1);
+      color: $light-gray;
+      text-decoration: none;
+      opacity: 1;
+    }
   }
 }
 
 .booking-form {
+
+  @media screen and (min-width: 900px) {
   width: 45vw;
+  }
 }
 
 .swal-footer {
   text-align: center;
+}
+
+.mapboxgl-canvas {
+  border-radius: 5px;
 }
