@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(review_params)
     @bike = Bike.find(params[:bike_id])
+    @owner = User.find(@bike.user_id) # need this to pass it to the view when re-rendering render: 'bikes/show' below
     @booking.bike = @bike
     @booking.user = current_user
     authorize @booking
