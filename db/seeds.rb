@@ -120,7 +120,7 @@ addresses = [
 end
 
 bike = Bike.new(
-  name: bike_names.shift,
+  name: "Fito's last rented Bike",
   category: 'Fixi',
   address: addresses.shift,
   # latitude: rand * 1 + 44.5,
