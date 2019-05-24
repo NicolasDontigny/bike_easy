@@ -28,11 +28,12 @@
         <li class="spec__info"><strong>Owner:</strong>
           <% if @owner.avatar?  %>
             <%= link_to user_profile_path(@owner.id) do %>
-              <%= cl_image_tag("@owner.avatar") %>
+              <%= avatar_for(@owner) %>
             <% end %>
           <% else %>
             <%= link_to user_profile_path(@owner.id), class: "owner__link" do %>
               <%= @owner.first_name %>
+              <%= avatar_for(@owner) %>
             <% end %>
           <% end %>
         </li>
@@ -53,7 +54,30 @@
   </div>
 </div>
 
-<h4 class="specs__title map__title">How far is it?</h4>
+<div class="reviews-container mt-5">
+  <h4 class="specs__title">What users say about this bike</h4>
+  <ul class="reviews-list">
+    <% @reviews.each do |review| %>
+      <li class="review-card">
+        <div class="review-header d-flex align-items-center">
+          <%= avatar_for(review.user) %>
+          <div class="review-owner-info">
+            <p><strong><%= review.user.first_name %></strong></p>
+            <p class="date"><%= review.date %></p>
+          </div>
+        </div>
+        <div class="review-content">
+          <%= review.content %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <h4 class="specs__title">Leave a Review</h4>
+  <%= render "reviews/form", bike: @bike, review: Review.new %>
+</div>
+
+<h4 class="specs__title map__title mt-5">How far is it?</h4>
 <div
   id="map_bike"
   style="width: 100%;
