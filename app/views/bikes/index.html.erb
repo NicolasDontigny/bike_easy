@@ -45,7 +45,15 @@
 
 
                       <div class="price d-flex justify-content-between">
-                        <p>Rating: <%= bike.rating %></p>
+                        <p>
+                          Rating:
+                          <% bike.rating.times do %>
+                            <i class="fas fa-star star-green"></i>
+                          <% end %>
+                          <% (5 - bike.rating).times do %>
+                            <i class="far fa-star star-green"></i>
+                          <% end %>
+                        </p>
                         <h6>$<%= format('%.2f', bike.price) %></h6>
                       </div>
                     </div>
