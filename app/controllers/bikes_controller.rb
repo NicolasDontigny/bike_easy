@@ -4,25 +4,30 @@ class BikesController < ApplicationController
 
   def index
     @no_container = true
-    category = params[:category]
-    if params[:query].present?
+    if params[:category].present?
+      @category = params[:category]
+      @rating = params[:rating][0].to_i
+      user_id = current_user ? current_user.id : 0
 
-      if category == "All"
-        sql_query = " \
-          name @@ :query \
-        "
-        @bikes = Bike.where(sql_query, query: "%#{params[:query]}%")
+      if @category == "All"
+        @bikes = Bike.where("rating >= :rating AND user_id <> :user_id", rating: @rating, user_id: user_id)
+        @message = 'all'
       else
         sql_query = " \
-          name @@ :query \
-          AND category = :category
+          category = :category \
+          AND rating >= :rating \
+          AND user_id <> :user_id
         "
-        @bikes = Bike.where(sql_query, query: "%#{params[:query]}%", category: params[:category])
+        @bikes = Bike.where(sql_query, category: @category, rating: @rating, user_id: user_id)
+
+        @message = 'category'
       end
 
-      @message = "We found #{@bikes.count} bikes matching your search"
+      # @message = "We found #{pluralize @bikes.count, "bike"} in \"#{category}\", with a rating of #{params[:rating]} and above"
     else
       @bikes = Bike.all
+
+      @message = false
     end
   end
 
