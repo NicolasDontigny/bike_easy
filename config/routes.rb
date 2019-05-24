@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'bookings', to: 'bookings#index', as: :bookings
 
   get 'rentals', to: 'bookings#rentals', as: :rentals
+  # patch 'rentals/:id', to: 'bookings#update_rental'
 
 
   post 'bikes/:id/bookings', to: 'bookings#create', as: :bike_bookings

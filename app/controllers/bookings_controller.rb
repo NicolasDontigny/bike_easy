@@ -39,8 +39,11 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.confirmed = "cancelled"
     @booking.save
-
-    redirect_to bookings_path
+    if params["rentals"] == "true"
+      redirect_to rentals_path
+    else
+      redirect_to bookings_path
+    end
   end
 
   def rentals
@@ -60,7 +63,7 @@ class BookingsController < ApplicationController
 
     @booking.destroy
 
-    redirect_to bookings_path
+    redirect_to rentals_path
   end
 
   private
