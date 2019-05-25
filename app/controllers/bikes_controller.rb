@@ -6,7 +6,7 @@ class BikesController < ApplicationController
     @no_container = true
     if params[:category].present?
       @category = params[:category]
-      @rating = params[:rating][0].to_i
+      @rating = params[:rating].first.to_i
       user_id = current_user ? current_user.id : 0
 
       if @category == "All"
@@ -23,7 +23,6 @@ class BikesController < ApplicationController
         @message = 'category'
       end
 
-      # @message = "We found #{pluralize @bikes.count, "bike"} in \"#{category}\", with a rating of #{params[:rating]} and above"
     else
       @bikes = Bike.all
 

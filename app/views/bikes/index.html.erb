@@ -1,6 +1,3 @@
-<%# <h1>Bikes#:index</h1>
-<p>Find me in app/views/bikes/:index.html.erb</p> %>
-
 <div class="semi-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1544361591-36e31038df92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);">
   <div class="banner-info d-flex justify-content-between h-100">
     <div class="d-flex flex-column justify-content-between h-100">
@@ -17,28 +14,27 @@
 
     <% if @message == 'category' %>
       <div class="search-message">
-        <!-- We found <span class="bikes-count"><%= @bikes.count %> bikes</span> matching your search -->
         We found <span class="bikes-count"><%= pluralize @bikes.count, "bike" %></span> in category <span class="bikes-count">"<%= @category %>"</span>, with a rating of <span class="bikes-count"><%= pluralize @rating, "star" %></span> or more
       </div>
     <% elsif @message == 'all' %>
       <div class="search-message">
-        <!-- We found <span class="bikes-count"><%= @bikes.count %> bikes</span> matching your search -->
         We found <span class="bikes-count"><%= pluralize @bikes.count, "bike" %></span> in all categories, with a rating of <span class="bikes-count"><%= pluralize @rating, "star" %></span> or more
       </div>
     <% end %>
     <div class="cards">
         <% if user_signed_in? %>
             <%# Do not show user's bikes %>
+
             <% @bikes = @bikes.reject do |bike| %>
                 <% bike.user == current_user %>
             <% end %>
         <% end %>
+
         <% @bikes.each do |bike| %>
             <%= link_to bike_path(bike.id), class:"card_link" do %>
                 <div class="card-bike">
                   <%= cl_image_tag(bike.photo) %>
                   <div class="card-bike-infos">
-
 
 
                     <div class="card-bike-infos">
@@ -47,9 +43,6 @@
                         <h2><%= bike.name %></h2>
                         <%= avatar_for(bike.user) %>
                       </div>
-
-
-
 
 
                       <div class="price d-flex justify-content-between mt-2">
@@ -71,5 +64,3 @@
         <% end %>
     </div>
 </div>
-
-<%#= link_to "MAP", bikes_map_path, id: 'map-button', class: 'btn btn-lg btn-maps' %>
