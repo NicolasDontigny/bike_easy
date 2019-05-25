@@ -133,9 +133,6 @@ bike.save!
   bike.save!
 end
 
-  bike.save
-end
-
 bike = Bike.new(
   name: 'Perfect for Fito!',
   category: 'Mountain',
@@ -147,7 +144,11 @@ bike = Bike.new(
 
 bike.user = nicolas
 
-review_users = [michael, romain, guillaume]
+contents = [
+  'Amazing bike, recommend to every mountain bike fan!',
+  'It was a bit dusty, but works perfectly!',
+  'No saddle, but nice'
+]
 
 puts 'Creating reviews'
 
