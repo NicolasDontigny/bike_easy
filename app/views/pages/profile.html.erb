@@ -2,7 +2,6 @@
 
   <div class="profile__content">
     <%= avatar_for(@user) %>
-      <!-- <%= cl_image_tag(@user.avatar, class: 'profile__pic') %> -->
     <p class="specs__title book-me"> Hi! I'm <%= @user.first_name %></p>
     <p class="spec__info"><%= @user.profile_description %></p>
     <% if @user == current_user %>
