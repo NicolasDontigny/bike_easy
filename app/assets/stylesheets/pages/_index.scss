@@ -28,3 +28,41 @@
   font-weight: bold;
   background-color: #FFB7B7;
 }
+
+.banner--mobile {
+  flex-direction: column;
+  @media screen and (min-width: 900px) {
+    flex-direction: row;
+  }
+}
+
+.btn--mobile {
+  @media screen and (max-width: 900px) {
+    height: 2rem;
+    font-size: 1rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.form-group.search-form-group:last-child {
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+}
+
+.container--mobile {
+  @media screen and (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+
+    .card_link--mobile {
+      margin-bottom: 0.5rem;
+    }
+  }
+}

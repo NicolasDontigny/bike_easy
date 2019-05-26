@@ -16,7 +16,7 @@
   <div class="profile__info">
     <h4 class="specs__title book-me">Check-out my bikes!</h4>
     <% @user.bikes.each do |bike| %>
-      <div class="card-product my-5">
+      <div class="card-product my-5 card-product--mobile">
         <%= cl_image_tag bike.photo %>
         <div class="card-product-infos d-flex flex-grow-1 flex-column justify-content-between align-items-start profile__button">
           <div class="info-text flex-grow-1 d-flex justify-content-between">

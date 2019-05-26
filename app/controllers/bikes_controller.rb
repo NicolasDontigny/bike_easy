@@ -78,7 +78,6 @@ class BikesController < ApplicationController
 
     flash[:just_created] = "Created \"#{new_bike.name}\" Successfully!"
 
-    # redirect_to my_bikes_path, just_created: "Created #{new_bike.name} successfully!"
     redirect_to my_bikes_path
   end
 
