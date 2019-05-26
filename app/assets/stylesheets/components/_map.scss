@@ -48,3 +48,12 @@
     text-decoration: none;
   }
 }
+
+.btn-maps--mobile {
+  @media screen and (max-width: 900px) {
+   width: 100% !important;
+   position: sticky !important;
+   background-color: white;
+   opacity: 0.8;
+  }
+}

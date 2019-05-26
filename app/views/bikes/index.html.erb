@@ -1,11 +1,11 @@
 <div class="semi-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1544361591-36e31038df92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);">
-  <div class="banner-info d-flex justify-content-between h-100">
+  <div class="banner-info d-flex justify-content-between h-100 banner--mobile">
     <div class="d-flex flex-column justify-content-between h-100">
       <div>
         <h2>Rent a bike whenever, wherever!</h2>
         <p>Browse through numerous types of bikes specific to your needs.</p>
       </div>
-      <%= link_to "Browse on Map", bikes_map_path, class: 'btn btn-lg btn-light-blue w-50 text-white' %>
+      <%= link_to "Browse on Map", bikes_map_path, class: 'btn btn-lg btn-light-blue w-50 text-white btn--mobile' %>
     </div>
     <%= render "search_form" %>
   </div>
@@ -21,7 +21,7 @@
         We found <span class="bikes-count"><%= pluralize @bikes.count, "bike" %></span> in all categories, with a rating of <span class="bikes-count"><%= pluralize @rating, "star" %></span> or more
       </div>
     <% end %>
-    <div class="cards">
+    <div class="cards container--mobile">
         <% if user_signed_in? %>
             <%# Do not show user's bikes %>
 
@@ -31,7 +31,7 @@
         <% end %>
 
         <% @bikes.each do |bike| %>
-            <%= link_to bike_path(bike.id), class:"card_link" do %>
+            <%= link_to bike_path(bike.id), class:"card_link card_link--mobile" do %>
                 <div class="card-bike">
                   <%= cl_image_tag(bike.photo) %>
                   <div class="card-bike-infos">

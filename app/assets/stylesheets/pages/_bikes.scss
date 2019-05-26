@@ -72,6 +72,9 @@
 
 .search-message {
   font-size: 130%;
+  @media screen and (max-width: 900px) {
+    font-size: 1rem;
+  }
 }
 
 .bikes-count {

@@ -8,7 +8,7 @@
 <% @bookings.each do |booking| %>
   <% booked_user = User.find(booking.user_id) %>
   <% booked_bike = Bike.find(booking.bike_id) %>
-  <div class="card-bookings my-3 bookings-page">
+  <div class="card-bookings my-3 bookings-page card-bookings--mobile">
    <%= cl_image_tag booked_bike.photo %>
     <div class="card-bookings-infos d-flex flex-grow-1">
       <div class="flex-grow-1">
@@ -21,7 +21,6 @@
 
 
         <% if booking.confirmed == "confirmed" %>
-          <!-- <h6 class="bg-success" style="width: 100px;"><%= booking.confirmed.capitalize %></h6> -->
           <div class="btn btn-success" style="">Confirmed</div>
         <% else %>
           <div class="btn"><%= booking.confirmed.capitalize %></div>

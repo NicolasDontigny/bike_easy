@@ -3,9 +3,6 @@
   <%= form.input :address, id: 'bike_address' %>
   <%= form.input :category, collection: ['Mountain', 'BMX', 'Road', 'Fixi', 'Electric', 'City', 'Fatbike'] %>
   <%= form.input :price, :label => "Price per Day" %>
-  <%#= form.input :description %>
-  <%#= form.input :gender, collection: ['M', 'F'] %>
-  <%#= form.input :size, collection: ['sm', 'md', 'lg'] %>
   <%= form.input :photo, class: "btn btn-primary" %>
   <%= form.input :photo_cache, as: :hidden %>
   <% if @new %>

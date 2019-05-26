@@ -16,7 +16,12 @@
   }
 
   border-radius: 4px;
+}
 
+.card-bookings.bookings-page {
+  @media screen and (max-width: 900px) {
+   height: 100%;
+  }
 }
 
 .card-bookings img {
@@ -28,6 +33,21 @@
 .card-bookings h2 {
   font-size: 24px;
   font-weight: bold;
+  @media screen and (max-width: 900px) {
+   font-size: 1rem;
+  }
+}
+
+.card-bookings h5 {
+  @media screen and (max-width: 900px) {
+   font-size: 1rem;
+  }
+}
+
+.card-bookings h6 {
+  @media screen and (max-width: 900px) {
+   font-size: 0.7rem;
+  }
 }
 
 .card-bookings p {
@@ -59,7 +79,6 @@
     margin-bottom: 16px;
   }
 }
-
 
 .card-bookings .card-bookings-infos {
   padding: 32px;
