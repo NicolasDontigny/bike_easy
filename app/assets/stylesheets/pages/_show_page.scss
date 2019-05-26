@@ -123,8 +123,9 @@
 }
 
 .skidmarks {
-  opacity: 0;
+  display: none;
   @media screen and (min-width: 900px) {
+    display: inline;
     opacity: 0.5;
     position: absolute;
     right: -5rem;
