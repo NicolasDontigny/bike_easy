@@ -41,6 +41,10 @@
           </div>
 
 
+
+
+          <!-- <p class="description"><%= bike.description %></p> -->
+
         </div>
 
       </div>
@@ -51,7 +55,7 @@
 
         </div>
         <div class="buttons">
-          <%= link_to edit_bike_path(bike), class: "btn btn-warning edit-btn", title: 'Edit Bike' do %>
+          <%= link_to edit_bike_path(bike), class: "btn btn-warning edit-btn", title: 'Edit Bike', data: { toggle: 'popover', content: 'Content',  placement: 'left', trigger: 'hover'} do %>
             <i class="fas fa-edit"></i>
           <% end %>
           <% # link_to "Delete", bike_path(bike), method: "delete", class: "btn btn-danger delete-btn" %>
