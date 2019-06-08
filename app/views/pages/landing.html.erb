@@ -1,13 +1,16 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1541625810516-44f1ce894bcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
   <div class="container">
     <h1>Avec<strong> Bike Easy</strong> trouver un vélo c'est comme 123!</h1>
-    <p>Faites un tour de Montréal a Vélo et visitez la plus ville du Canada.</p>
-    <!-- # views/devise/menu/_login_items.html.erb -->
+    <p>Faites un tour de Montréal à Vélo et visitez la plus belle ville du Canada.</p>
     <% if !user_signed_in? %>
-      <li>
-      <%= link_to('Register', new_user_registration_path, class: "btn btn-secondary btn-lg")  %>
-      <%= link_to('Browse', bikes_path, class: "btn btn-secondary btn-lg") %>
-      </li>
+      <ul>
+        <li>
+        <%= link_to('Register', new_user_registration_path, class: "btn btn-secondary btn-lg")  %>
+        </li>
+        <li>
+        <%= link_to('Browse', bikes_path, class: "btn btn-secondary btn-lg") %>
+        </li>
+      </ul>
     <% end %>
   </div>
 </div>

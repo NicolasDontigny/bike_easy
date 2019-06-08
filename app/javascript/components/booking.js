@@ -11,7 +11,6 @@ const toggleDateInputs = function() {
 
     flatpickr(startDateInput, {
     minDate: 'today',
-    // mode: 'range',
     dateFormat: "Y-m-d",
     disable: unvailableDates,
     onChange: function(selectedDates, selectedDate) {

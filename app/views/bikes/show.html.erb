@@ -10,21 +10,17 @@
   <% end %></h2>
 </div>
 <div class="bike__info--container">
+
   <div class="specs__wrapper">
+
     <div class="specssheet" >
+
       <h4 class="specs__title">Specs sheet</h4>
+
       <ul class="specs">
         <li class="spec__info"><strong>Category:</strong> <%=@bike.category %></li>
-<!--         <li class="spec__info"><strong>Description:</strong> <%= @bike.description %></li>
-        <li class="spec__info"><strong>Gender:</strong> <%=@bike.gender %></li>
-        <li class="spec__info"><strong>Size:</strong> <%= @bike.size %></li> -->
         <li class="spec__info"><strong>Price:</strong> $<%= format('%.2f', @bike.price) %></li>
         <% counter = 0 %>
-        <!-- <li class="spec__info"><strong>Rating:</strong> <% 5.times do %>
-          <i class="fa <%= @bike.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-            <% counter += 1 %>
-          <% end %>
-        </li> -->
         <li class="spec__info">
           <strong>Rating:</strong>
           <% @bike.rating.times do %>
@@ -35,33 +31,36 @@
           <% end %>
         </li>
         <li class="spec__info"><strong>Owner:</strong>
-          <% if @bike.user.avatar?  %>
             <%= link_to user_profile_path(@bike.user.id) do %>
-              <%= @bike.user.first_name %>
               <%= avatar_for(@bike.user) %>
-            <% end %>
-          <% else %>
-            <%= link_to user_profile_path(@bike.user.id), class: "owner__link" do %>
               <%= @bike.user.first_name %>
-              <%= avatar_for(@bike.user) %>
             <% end %>
-          <% end %>
         </li>
 
       </ul>
       <%= image_tag 'skidmarks.png', class: "skidmarks" %>
       <%= image_tag 'skidmarks.png', class: "skidmarks2" %>
+
     </div>
+
   </div>
+
   <div class="booking-form">
+
     <h4 class="specs__title book-me">Book me!</h4>
+
     <%= render "shared/booking_form", bike: @bike, booking: @booking %>
+
     <% if @bike.user != current_user %>
+
     <p class="contact"><span class="contact__title">Any questions, comments, request?</span>
       <a href="mailto:<%= @bike.user.email %>?Subject=Info%20about%20<%= @bike.name %>" target="_blank" class="mailto">Contact <%= @bike.user.first_name %></a>
     </p>
+
     <% end %>
+
   </div>
+
 </div>
 
 <div class="reviews-container mt-5">
@@ -79,8 +78,12 @@
     </ul>
   <% end %>
 
-  <h4 class="specs__title">Leave a Review</h4>
-  <%= render "reviews/form", bike: @bike, review: Review.new %>
+  <% if @bike.user != current_user %>
+
+    <h4 class="specs__title">Leave a Review</h4>
+
+    <%= render "reviews/form", bike: @bike, review: Review.new %>
+  <% end %>
 </div>
 
 <h4 class="specs__title map__title mt-5">How far is it?</h4>

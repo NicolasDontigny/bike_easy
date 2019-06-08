@@ -1,13 +1,6 @@
 <%= form_tag bikes_path, method: :get do %>
-  <!-- <div class="form-group search-form-group">
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Search for bikes"
-    %>
-  </div> -->
 
-  <div class="form-group search-form-group">
+  <div class="form-group search-form-group first__field--mobile">
     <%= label_tag 'category', 'Browse by Category' %>
     <% categories = ['All', 'Mountain', 'BMX', 'Road', 'Fixi', 'Electric', 'City', 'Fatbike'] %>
     <%= select_tag :category,
@@ -15,7 +8,7 @@
         class: "form-control" %>
   </div>
 
-  <div class="form-group search-form-group">
+  <div class="form-group search-form-group last__field--mobile">
     <%= label_tag 'rating', 'Minimum rating' %>
     <% ratings = ['1 star', '2 stars', '3 stars', '4 stars', '5 stars'] %>
     <%= select_tag :rating,
@@ -23,7 +16,7 @@
         class: "form-control" %>
   </div>
 
-  <div class="text-right">
-    <input type="submit" value="Search" class="btn btn-primary">
+  <div class="text-right btn__wrapper--mobile">
+    <input type="submit" value="Search" class="btn btn-primary btn__submit--mobile">
   </div>
 <% end %>

@@ -30,7 +30,6 @@
     font-size: 18px;
     text-align: left;
     margin: 12px 0;
-    // font-weight: bold;
   }
   .reviews {
     font-size: 14px;
@@ -47,5 +46,14 @@
   &:hover {
     color: black;
     text-decoration: none;
+  }
+}
+
+.btn-maps--mobile {
+  @media screen and (max-width: 900px) {
+   width: 100% !important;
+   position: sticky !important;
+   background-color: white;
+   opacity: 0.8;
   }
 }

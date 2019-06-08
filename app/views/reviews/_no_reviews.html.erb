@@ -1,5 +1,12 @@
 <li class="review-card">
+
+  <% if @bike.user != current_user %>
+    <div class="review-content no-reviews">
+      There are no reviews yet for this bike. Be the first to leave one!
+    </div>
+  <% elsif %>
   <div class="review-content no-reviews">
-    There are no reviews yet for this bike. Be the first to add one!
-  </div>
+      There are no reviews yet for this bike. Ask you renters to leave one!
+    </div>
+  <% end %>
 </li>

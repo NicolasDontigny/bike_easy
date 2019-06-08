@@ -33,8 +33,18 @@
 #reviews-list {
   list-style: none;
   padding: 0;
+  transition: opacity 1s ease-in;
+}
+
+#reviews-list > li {
+  transition: opacity 1s ease;
 }
 
 .review-rating {
   margin-top: 16px;
+}
+
+.fade_in {
+  opacity: 0;
+  transition: opacity 1s ease-in;
 }

@@ -123,8 +123,9 @@
 }
 
 .skidmarks {
-  opacity: 0;
+  display: none;
   @media screen and (min-width: 900px) {
+    display: inline;
     opacity: 0.5;
     position: absolute;
     right: -5rem;
@@ -225,14 +226,14 @@
 
 
 .card-bike-infos img {
-  width: 25px;
-  height: 25px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
 }
 
 .spec__info img {
-  width: 55px;
-  height: 45px;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
 }
 

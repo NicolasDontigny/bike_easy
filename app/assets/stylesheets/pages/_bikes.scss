@@ -57,8 +57,6 @@
 
   .card-bike .card-bike-infos {
     padding: 8px;
-    // display: flex;
-    // align-items: flex-end;
   }
 
   .card-bike-infos {
@@ -74,6 +72,9 @@
 
 .search-message {
   font-size: 130%;
+  @media screen and (max-width: 900px) {
+    font-size: 1rem;
+  }
 }
 
 .bikes-count {
