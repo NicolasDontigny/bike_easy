@@ -1,3 +1,9 @@
+console.log("HELLO")
+
+var changeOpacity = (element) => {
+  element.style.opacity = 1;
+}
+
 function refreshForm(innerHTML) {
   const newReviewForm = document.getElementById('new_review');
   newReviewForm.innerHTML = innerHTML;
@@ -5,15 +11,6 @@ function refreshForm(innerHTML) {
 
 function addReview(reviewHTML) {
   const reviews = document.getElementById('reviews-list');
-  const title = document.querySelector('.no-reviews');
-
-  if (title) {
-    reviews.removeChild(reviews.children[0]);
-    reviews.insertAdjacentHTML('afterbegin', '<h4 class="specs__title fade_in">What users say about this bike</h4>');
-    const titleFade = document.querySelector('.fade_in');
-    setTimeout(() => { titleFade.style.opacity = 1 }, 100);
-  }
-
   reviews.insertAdjacentHTML('beforeend', reviewHTML);
   new_review = reviews.querySelector('li:last-child');
 

@@ -11,6 +11,8 @@ class Bike < ApplicationRecord
 
   validates :name, :photo, :price, presence: true
   validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }
+  # validates :gender, inclusion: { in: ['M', 'F'] }
+  # validates :size, inclusion: { in: ['sm', 'md', 'lg'] }
   validates :category, inclusion: { in: ['Mountain', 'BMX', 'Road', 'Fixi', 'Electric', 'City', 'Fatbike'] }
 
   def unavailable_dates
